@@ -1,0 +1,106 @@
+SHELL=/bin/bash
+
+# Do not edit these values, they should be changed by modifying .cookiecutter.yml
+# and re-applying the template
+PAPER_ID={{cookiecutter.paper_id}}
+HAS_APPENDIX={{cookiecutter.with_appendix}}
+LATEX_TEMPLATE={{cookiecutter.latex_template}}
+WITH_ARXIV_PACKAGE={{cookiecutter.with_arxiv_package}}
+
+CONTENT_TEX_SOURCES=$(filter-out $(PAPER_ID).tex config.tex other-extras.tex autozoil-extras.tex extras.tex metadata.tex preamble.tex the-appendix.tex, $(wildcard *.tex))
+
+CURRENT_DIR=$(shell pwd)
+AUTOZOIL_DIR?=/opt/autozoil
+AUTOZOIL_LOCALE={{cookiecutter.locale}}
+
+ifneq (,$(wildcard appendix.tex))
+ifeq ($(LATEX_TEMPLATE),acl)
+IS_APPENDIX_SEPARATE=yes
+endif
+ifeq ($(LATEX_TEMPLATE),eacl)
+IS_APPENDIX_SEPARATE=yes
+endif
+endif
+
+ifeq ($(IS_APPENDIX_SEPARATE),yes)
+HAS_SUPPLEMENT=yes
+endif
+
+ifeq ($(LATEX_TEMPLATE),pw-thesis)
+EXTRA_PDFS=titlepage.pdf
+endif
+
+CONTENT_TEX_SOURCES_WITH_DIR := $(addprefix $(CURRENT_DIR)/, $(CONTENT_TEX_SOURCES))
+SCOREFILES=$(shell perl extract-score-files.pl $(CONTENT_TEX_SOURCES))
+
+clean_latex_stuff=rm -rf *.aux *.nav *.toc *.log *.out *.blg *.bbl autozoil-log.txt autozoil.xml the-appendix.pdf supplement.zip $(PAPER_ID).pdf $(PAPER_ID).zip arxiv-$(PAPER_ID).pdf arxiv-$(PAPER_ID).tar.gz abstract.txt sentences.txt stats.txt $(EXTRA_PDFS)
+
+ifeq ($(HAS_SUPPLEMENT),yes)
+all: $(PAPER_ID).pdf abstract.txt supplement.zip stats.txt sentences.txt
+else
+all: $(PAPER_ID).pdf abstract.txt stats.txt sentences.txt
+endif
+
+source-pack: $(PAPER_ID).zip
+
+stats.txt: $(PAPER_ID).pdf helpers/stats.sh
+	bash helpers/stats.sh $< > $@
+	cat $@
+
+$(PAPER_ID).pdf: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) $(EXTRA_PDFS)
+	pdflatex $<
+	bibtex $(PAPER_ID)
+	pdflatex $<
+	pdflatex $<
+
+# to be copied and pasted as plain text (without LaTeX stuff)
+abstract.txt: abstract.tex
+	cat $< | perl -pne 's/noqa\{[^}]+\}//g' | detex > $@
+
+sentences.txt: $(PAPER_ID).pdf helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-references.pl
+	bash helpers/get-sentences.sh $< > $@
+
+scores/%.txt:
+	mkdir -p scores
+	curl "https://gonito.net/api/txt/score/"$* -o $@
+
+autozoil-log.txt: $(CONTENT_TEX_SOURCES)
+	cd $(AUTOZOIL_DIR) && set -o pipefail && ./autozoil --locale $(AUTOZOIL_LOCALE) $(CONTENT_TEX_SOURCES_WITH_DIR) --alt-log-file $(CURRENT_DIR)/$(PAPER_ID).log | tee $(CURRENT_DIR)/$@
+
+autozoil.xml: $(CONTENT_TEX_SOURCES)
+	cd $(AUTOZOIL_DIR) && set -o pipefail && ./autozoil --locale $(AUTOZOIL_LOCALE) $(CONTENT_TEX_SOURCES_WITH_DIR) --format xml --alt-log-file $(CURRENT_DIR)/$(PAPER_ID).log --exit-with-zero > $(CURRENT_DIR)/autozoil.xml
+
+$(PAPER_ID).zip:
+	$(clean_latex_stuff)
+	rm -rf *~
+	zip -r $@ . -x '*.git*' '*.zip'
+
+ifeq ($(HAS_SUPPLEMENT),yes)
+supplement.zip: the-appendix.pdf
+	zip $@ $<
+
+ifeq ($(IS_APPENDIX_SEPARATE),yes)
+the-appendix.pdf: the-appendix.tex appendix.tex
+	pdflatex the-appendix
+	pdflatex the-appendix
+	pdflatex the-appendix
+endif
+
+endif
+
+ifeq ($(WITH_ARXIV_PACKAGE),yes)
+# test whether a paper can be generated from the arxiv package
+arxiv-$(PAPER_ID).pdf: arxiv-$(PAPER_ID).tar.gz helpers/generate-pdf-from-arxiv-package.sh
+	bash -xe helpers/generate-pdf-from-arxiv-package.sh $< $@
+
+arxiv-$(PAPER_ID).tar.gz: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) helpers/prepare-arxiv-package.sh helpers/flatten-structure.pl
+	bash -xe helpers/prepare-arxiv-package.sh $(LATEX_TEMPLATE) $@
+endif
+
+ifeq ($(LATEX_TEMPLATE),pw-thesis)
+titlepage.pdf: titlepage.tex
+	xelatex $<
+endif
+
+clean:
+	$(clean_latex_stuff)

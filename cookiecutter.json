@@ -1,0 +1,19 @@
+{
+    "paper_id": "lorem-ipsum",
+    "paper_repo_name": "{{ cookiecutter.paper_id + '-paper' }}",
+    "paper_short_description": "Sample paper",
+    "paper_title": "Paper title",
+    "gitlab_group": "research/papers",
+    "main_contributor": "jan.iksinski",
+    "main_contributor_name": "Jan Iksiński",
+    "latex_template": "vanilla",
+    "git_host": "git.wmi.amu.edu.pl",
+    "locale": "en_US",
+    "with_appendix": "no",
+    "extra_locale": "{{ 'none' if cookiecutter.latex_template != 'pw-thesis' else 'pl_PL' }}",
+    "with_arxiv_package": "{{ 'yes' if cookiecutter.latex_template != 'pw-thesis' else 'no' }}",
+    "discipline": "none",
+    "specialization": "none",
+    "supervisor": "none",
+    "album_no": "none"
+}

@@ -1,0 +1,49 @@
+{% raw %}
+\pdfoutput=1
+% nleguide.tex
+% v1.0, released 31 Jan 2019
+% Copyright 2019 Cambridge University Press
+
+\documentclass{nle}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{natbib}
+\ifpdf%
+\usepackage{epstopdf}%
+\else%
+\fi
+
+\input{config}
+\input{preamble}
+\input{extras}
+
+\begin{document}
+\label{firstpage}
+
+\input{metadata}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\maketitle
+
+\input{main}
+
+\bibliographystyle{nlelike}
+\bibliography{bibliography}
+
+\ifwithappendix
+\input{appendix}
+\fi
+
+\label{lastpage}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}

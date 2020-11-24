@@ -1,0 +1,338 @@
+{% raw %}
+\pdfoutput=1
+\documentclass[a4paper,11pt,twoside]{report}
+% THIS FILE SHOULD BE COMPILED BY pdfLaTeX
+
+% ----------------------   PREAMBLE PART ------------------------------
+
+\input{config}
+\input{preamble}
+\input{extras}
+
+% ------------------------ ENCODING & LANGUAGES ----------------------
+
+\usepackage[utf8]{inputenc}
+%\usepackage[MeX]{polski} % Not needed unless You have a name with polish symbols or sth
+\usepackage[T1]{fontenc}
+\usepackage[english, polish]{babel}
+
+
+\usepackage{amsmath, amsfonts, amsthm, latexsym} % MOSTLY MATHEMATICAL SYMBOLS
+\usepackage{ulem} %cross-outs
+\usepackage{tabularx} %tables with width setting
+\usepackage{hyperref} %hyperlinks, for table of contents
+
+%copy-paste from stack overflow to use vertical labels in tables
+\usepackage{array,graphicx}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{float}
+
+\newcommand*\rot{\rotatebox{90}}
+\newcommand*\OK{\ding{51}}
+
+\usepackage[final]{pdfpages} % INPUTING TITLE PDF PAGE - GENERATE IT FIRST!
+%\usepackage[backend=bibtex, style=verbose-trad2]{biblatex}
+
+% ---------------- MARGINS, INDENTATION, LINESPREAD ------------------
+
+\usepackage[inner=20mm, outer=20mm, bindingoffset=10mm, top=25mm, bottom=25mm]{geometry} % MARGINS
+
+\usepackage[none]{hyphenat}
+\hyphenpenalty=750 % kara za łamanie słów
+\hyphenpenalty 10000
+\exhyphenpenalty 10000
+\hyphenation{state-of-the-art}
+
+
+
+\linespread{1.5}
+\allowdisplaybreaks         % ALLOWS BREAKING PAGE IN MATH MODE
+
+\usepackage{indentfirst}    % IT MAKES THE FIRST PARAGRAPH INDENTED; NOT NEEDED
+\setlength{\parindent}{5mm} % WIDTH OF AN INDENTATION
+
+
+%---------------- RUNNING HEAD - CHAPTER NAMES, PAGE NUMBERS ETC. -------------------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+% PAGINATION: LEFT ALIGNMENT ON EVEN PAGES, RIGHT ALIGNMENT ON ODD PAGES
+\fancyfoot[LE,RO]{\thepage}
+% RIGHT HEADER: zawartość \rightmark do lewego, wewnętrznego (marginesu)
+\fancyhead[LO]{\sc \nouppercase{\rightmark}}
+% lewa pagina: zawartość \leftmark do prawego, wewnętrznego (marginesu)
+\fancyhead[RE]{\sc \leftmark}
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+
+% HEAD RULE - IT'S A LINE WHICH SEPARATES HEADER AND FOOTER FROM CONTENT
+\renewcommand{\headrulewidth}{0 pt} % 0 MEANS NO RULE, 0.5 MEANS FINE RULE, THE BIGGER VALUE THE THICKER RULE
+
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[LE,RO]{\thepage}
+
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.0pt}
+}
+
+
+
+% --------------------------- CHAPTER HEADERS ---------------------
+
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\Large \bfseries}
+  {\thechapter.}{1ex}{\Large}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection.}{1ex}{}
+\titlespacing{\section}{0pt}{30pt}{20pt}
+
+
+\titleformat{\subsection}
+  {\normalfont \bfseries}
+  {\thesubsection.}{1ex}{}
+
+
+% ----------------------- TABLE OF CONTENTS SETUP ---------------------------
+
+\def\cleardoublepage{\clearpage\if@twoside
+\ifodd\c@page\else\hbox{}\thispagestyle{empty}\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+% THIS MAKES DOTS IN TOC FOR CHAPTERS
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\l@chapter}
+  {\hfil}
+  {\leaders\hbox{\normalfont$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill}
+  {}{}
+\makeatother
+
+\usepackage{titletoc}
+\makeatletter
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries \thecontentslabel.\quad}% <numbered-entry-format>
+  {\bfseries}% <numberless-entry-format>
+  {\bfseries\leaders\hbox{\normalfont$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill\contentspage}% <filler-page-format>
+
+\titlecontents{section}
+  [1em]
+  {}
+  {\thecontentslabel.\quad}
+  {}
+  {\leaders\hbox{\normalfont$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill\contentspage}
+
+\titlecontents{subsection}
+  [2em]
+  {}
+  {\thecontentslabel.\quad}
+  {}
+  {\leaders\hbox{\normalfont$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill\contentspage}
+\makeatother
+
+
+
+% ---------------------- TABLES AD FIGURES NUMBERING ----------------------
+
+\renewcommand*{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand*{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+
+% ------------- DEFINING ENVIRONMENTS FOR THEOREMS, DEFINITIONS ETC. ---------------
+
+\makeatletter
+\newtheoremstyle{definition}
+{3ex}%                           % Space above
+{3ex}%                           % Space below
+{\upshape}%                      % Body font
+{}%                              % Indent amount
+{\bfseries}%                     % Theorem head font
+{.}%                             % Punctuation after theorem head
+{.5em}%                          % Space after theorem head, ' ', or \newline
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+\makeatother
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% --------------------- END OF PREAMBLE PART (MOSTLY) --------------------------
+
+
+
+
+
+% -------------------------- USER SETTINGS ---------------------------
+
+\input{metadata}
+
+\begin{document}
+\sloppy
+\selectlanguage{english}
+
+\includepdf[pages=-]{titlepage} % THIS INPUTS THE TITLE PAGE
+
+
+% ------------------ PAGE WITH SIGNATURES --------------------------------
+
+\thispagestyle{empty}\newpage
+\null
+
+\vfill
+
+\begin{center}
+\begin{tabular}[t]{ccc}
+............................................. & \hspace*{100pt} & .............................................\\
+supervisor's signature & \hspace*{100pt} & author's signature
+\end{tabular}
+\end{center}
+
+
+
+% ---------------------------- ABSTRACTS -----------------------------
+
+{
+\begin{abstract}
+
+\begin{center}
+\title
+\end{center}
+
+\input{abstract}
+\\
+
+\noindent \textbf{Keywords:} \input{keywords}
+\end{abstract}
+}
+
+\null\thispagestyle{empty}\newpage
+
+
+{\selectlanguage{polish}
+\begin{abstract}
+
+\begin{center}
+\tytul
+\end{center}
+
+\input{abstract-pl}
+\\
+
+\noindent \textbf{Słowa kluczowe:} \input{keywords-pl}
+\end{abstract}
+}
+
+
+% --------------------------- DECLARATION ------------------------------------
+
+
+\null\thispagestyle{empty}\newpage
+
+\null \hfill Warsaw, ..................\\
+
+\par\vspace{5cm}
+
+\begin{center}
+Declaration
+\end{center}
+
+I hereby declare that the thesis entitled ,,\title '', submitted for the \type ~degree, supervised  by \supervisor , is entirely my original work apart from the recognized reference.
+\vspace{2cm}
+
+\begin{flushright}
+  \begin{minipage}{50mm}
+    \begin{center}
+      ..............................................
+
+    \end{center}
+  \end{minipage}
+\end{flushright}
+
+\thispagestyle{empty}
+\newpage
+
+\null\thispagestyle{empty}\newpage
+% ------------------- 4. Spis treści ---------------------
+% \selectlanguage{english} - for English
+\pagenumbering{gobble}
+\tableofcontents
+\thispagestyle{empty}
+\newpage % IF YOU HAVE EVEN QUANTITY OD PAGES OF TOC, THEN REMOVE IT OR ADD \null\newpage FOR DOUBLE BLANK PAGE BEFORE INTRODUCTION
+
+
+% -------------------- THE BODY OF THE THESIS --------------------------------
+
+\null\thispagestyle{empty}\newpage
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{11}
+
+\input{main}
+
+
+% ------------------------------- BIBLIOGRAPHY ---------------------------
+% LEXICOGRAPHICAL ORDER BY AUTHORS' LAST NAMES
+% FOR AMBITIOUS ONES - USE BIBTEX
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+
+
+\pagenumbering{gobble}
+\thispagestyle{empty}
+
+
+
+% ----------------------- LIST OF SYMBOLS AND ABBREVIATIONS ------------------
+\chapter*{List of symbols and abbreviations}
+
+\begin{tabular}{cl}
+? & ???
+\end{tabular}
+\\
+\thispagestyle{empty}
+
+
+% ----------------------------  LIST OF FIGURES --------------------------------
+\listoffigures
+\thispagestyle{empty}
+If you don't need it, delete it.
+
+
+% -----------------------------  LIST OF TABLES --------------------------------
+\renewcommand{\listtablename}{Spis tabel}
+\listoftables
+\thispagestyle{empty}
+If you don't need it, delete it.
+
+% -----------------------------  LIST OF APPENDICES ---------------------------
+\chapter*{List of appendices}
+\begin{enumerate}
+\item Appendix 1
+\item Appendix 2
+\item In case of no appendices, delete this part.
+\end{enumerate}
+\thispagestyle{empty}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}

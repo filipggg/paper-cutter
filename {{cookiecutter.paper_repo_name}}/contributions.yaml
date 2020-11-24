@@ -1,0 +1,12 @@
+# This is in YAML format so we can easily generate
+# contribution declarations to be signed by the authors.
+
+title: {{cookiecutter.paper_title}}
+authors:
+  - author: Jan Iksinski
+    contributions:
+      - did this
+      - did that
+  - author: Józef Igrekowski
+    contributions:
+      - did something else

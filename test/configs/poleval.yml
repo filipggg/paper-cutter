@@ -1,0 +1,3 @@
+
+default_context:
+  latex_template: 'poleval'

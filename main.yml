@@ -1,0 +1,66 @@
+
+variables:
+  WITH_ARXIV_PACKAGE: "{{cookiecutter.with_arxiv_package}}"
+
+
+image: loxygen/autozoil:1.2.1
+
+# work-around for GitLab shortcomings
+# (https://gitlab.com/gitlab-org/gitlab-ce/issues/23434)
+.default_stuff: &default_stuff
+  tags:
+    - openshift
+
+stages:
+  - build
+  - arxiv
+  - lint
+  - pack
+
+build-pdf:
+  <<: *default_stuff
+  stage: build
+  script:
+    - make
+  artifacts:
+    paths:
+      - ${PAPER_ID}.pdf
+      - ${PAPER_ID}.log
+      - stats.txt
+      - abstract.txt
+      - supplement.zip
+      - sentences.txt
+
+autozoil:
+  <<: *default_stuff
+  stage: lint
+  script:
+    - ls -l
+    - make autozoil-log.txt
+  artifacts:
+    paths:
+      - autozoil-log.txt
+
+source-pack:
+  <<: *default_stuff
+  stage: pack
+  script:
+    - make source-pack
+  artifacts:
+    paths:
+      - ${PAPER_ID}.zip
+
+arxiv:
+  <<: *default_stuff
+  stage: arxiv
+  script:
+    - git clone https://github.com/google-research/arxiv-latex-cleaner.git
+    - (cd arxiv-latex-cleaner && python3 setup.py install)
+    - make arxiv-${PAPER_ID}.pdf
+  artifacts:
+    paths:
+      - arxiv-${PAPER_ID}.pdf
+      - arxiv-${PAPER_ID}.tar.gz
+  only:
+    variables:
+      - $WITH_ARXIV_PACKAGE == "yes"

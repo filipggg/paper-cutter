@@ -1,0 +1,64 @@
+{% raw %}
+\pdfoutput=1
+%
+% File coling2020.tex
+%
+% Contact: feiliu@cs.ucf.edu & liang.huang.sh@gmail.com
+%% Based on the style files for COLING-2018, which were, in turn,
+%% Based on the style files for COLING-2016, which were, in turn,
+%% Based on the style files for COLING-2014, which were, in turn,
+%% Based on the style files for ACL-2014, which were, in turn,
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn,
+%% based on the style files for ACL-2010, which were, in turn,
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\newcommand\citep[1]{\cite{#1}}
+\newcommand\citet[1]{\newcite{#1}}
+
+\documentclass[11pt]{article}
+\usepackage{coling2020}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+
+%\setlength\titlebox{5cm}
+
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\input{config}
+\input{extras}
+\input{preamble}
+\input{metadata}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\input{main}
+
+\bibliography{bibliography}
+\bibliographystyle{acl}
+
+\ifwithappendix
+\typeout{!!! APPENDIX WILL BE SKIPPED FOR THIS TEMPLATE. !!!}
+\fi
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}

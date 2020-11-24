@@ -1,0 +1,10 @@
+variables:
+  PAPER_ID: "{{cookiecutter.paper_id}}"
+
+# In order to run via `gitlab-runner exec docker ...` locally,
+# run `./run-gitlab-runner.sh docker ...`.
+# THIS IS AN UGLY WORK-AROUND
+include:
+  - project: 'research/paper-cutter'
+    ref: '4.0.0'
+    file: 'main.yml'

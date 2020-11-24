@@ -1,0 +1,66 @@
+pipeline {
+
+    agent { label 'tau2013z' }
+
+    stages {
+
+        stage ('get-autozoil') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'autozoil']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitlab.com/filipg/autozoil.git']]])
+            }
+        }
+
+	stage ('build-pdf') {
+            steps {
+                sh """
+make clean
+make
+"""
+            }
+
+            post {
+                always {
+                    archiveArtifacts artifacts: '{{cookiecutter.paper_id}}.pdf', fingerprint: true
+                    archiveArtifacts artifacts: 'stats.txt', fingerprint: true
+
+                    plot csvFileName: 'stats.txt',
+                         csvSeries: [[
+                            file: 'stats.txt',
+                            exclusionValues: '',
+                            displayTableFlag: false,
+                            inclusionFlag: 'OFF',
+                            url: '']],
+                         group: 'Plot Group',
+                         title: 'Plot Title',
+                         style: 'line',
+                         exclZero: false,
+                         keepRecords: false,
+                         logarithmic: false,
+                         numBuilds: '',
+                         useDescr: false,
+                         yaxis: '',
+                         yaxisMaximum: '',
+                         yaxisMinimum: ''
+                }
+            }
+
+	}
+
+	stage ('autozoil') {
+            steps {
+            sh """
+rm -f autozoil.xml
+AUTOZOIL_DIR=autozoil make autozoil.xml
+"""
+            }
+
+            post {
+                always {
+                    archiveArtifacts artifacts: 'autozoil.xml', fingerprint: true
+                    junit 'autozoil.xml'
+                }
+            }
+	}
+
+    }
+}

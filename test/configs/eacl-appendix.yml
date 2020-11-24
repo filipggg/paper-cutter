@@ -1,0 +1,4 @@
+
+default_context:
+  latex_template: 'eacl'
+  with_appendix: 'yes'

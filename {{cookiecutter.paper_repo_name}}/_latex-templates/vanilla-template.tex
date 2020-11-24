@@ -1,0 +1,50 @@
+{% raw %}
+\pdfoutput=1
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{natbib}
+\usepackage[margin=25mm]{geometry}
+
+\usepackage{xcolor}		% make links dark blue
+\definecolor{darkblue}{rgb}{0, 0, 0.66}
+\definecolor{darkred}{rgb}{0.875, 0, 0}
+\definecolor{darkgreen}{rgb}{0, 0.5, 0}
+
+\usepackage{placeins}
+
+\input{config}
+\input{extras}
+\input{preamble}
+\hypersetup{colorlinks=true,citecolor=darkgreen, linkcolor=darkred, urlcolor=darkblue}
+\input{metadata}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\input{main}
+
+\ifwithappendix
+\FloatBarrier
+
+\clearpage
+
+\appendix
+
+\input{appendix}
+\fi
+
+\bibliography{bibliography}
+\bibliographystyle{abbrvnat}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}

@@ -1,0 +1,50 @@
+{% raw %}
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\input{config}
+\input{extras}
+\input{preamble}
+
+\begin{document}
+%
+\input{metadata.tex}
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+\input{abstract}
+
+\keywords{%
+\input{keywords}
+}
+\end{abstract}
+%
+%
+%
+\input{main}
+
+\bibliography{bibliography}
+\bibliographystyle{splncs04}
+
+\ifwithappendix
+\input{appendix}
+\fi
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}
