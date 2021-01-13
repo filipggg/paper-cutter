@@ -1,4 +1,11 @@
 
+<a name="4.0.1"></a>
+## 4.0.1 (2021-01-13)
+
+Improvements
+
+* LLNCS template downloaded live from the publisher
+
 <a name="4.0.0"></a>
 ## 4.0.0 (2020-11-24)
 
