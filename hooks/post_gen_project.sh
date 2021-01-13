@@ -62,6 +62,9 @@ elif [ "{{ cookiecutter.latex_template }}" = "coling" ]; then
     cp -r _latex-templates/coling2020-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/coling2020-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "llncs" ]; then
+    get_files "ftp://ftp.springernature.com/cs-proceeding/llncs/llncs2e.zip" \
+              llncs.cls \
+              splncs04.bst
     cp -r _latex-templates/llncs-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/llncs-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "emnlp" ]; then
