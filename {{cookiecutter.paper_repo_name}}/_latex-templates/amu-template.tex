@@ -1,0 +1,37 @@
+{% raw %}
+\documentclass{amu-diploma-thesis}
+\usepackage[utf8]{inputenc}
+
+% ----------------------   PREAMBLE PART ------------------------------
+
+\input{config}
+\input{preamble}
+\input{extras}
+
+%%
+
+
+\input{metadata}
+
+\begin{document}
+
+\Titlepage       %% strona tytułowa pracy
+\Statement       %% oświadczenie
+\tableofcontents %% spis treści
+
+% streszczenie po polsku
+\begin{streszczenie}
+\input{abstract-pl}
+\end{streszczenie}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\input{main}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}
+{% endraw %}

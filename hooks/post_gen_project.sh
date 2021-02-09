@@ -88,13 +88,17 @@ elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
     cp -r _latex-templates/poleval-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/poleval-template-meta.tex metadata.tex
     cp -r _latex-templates/poleval.{bst,cls} .
+elif [ "{{ cookiecutter.latex_template }}" = "amu" ]; then
+    cp -r _latex-templates/amu-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/amu-template-meta.tex metadata.tex
+    cp -r _latex-templates/amu-diploma-thesis.cls .
 fi
 
 if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then
     cp -r _optional_files/_appendix/* .
 fi
 
-if [ "{{ cookiecutter.extra_locale }}" = "pl_PL" ]; then
+if [ "{{ cookiecutter.extra_locale }}" = "pl_PL" -o "{{ cookiecutter.locale }}" = "pl_PL" ]; then
     cp -r _optional_files/_pl_files/* .
 fi
 

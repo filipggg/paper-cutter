@@ -23,6 +23,7 @@ following templates are handled:
 * EMNLP (`emnlp`)
 * EACL (`eacl`)
 * PolEval (`poleval`)
+* Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`)
 
 If you are to use another template, prepare an MR to this repo first!
 Do not add directly to your specific paper.
@@ -142,3 +143,4 @@ Prepared by Filip Graliński (Applica.ai).
 * Łukasz Garncarek
 * Piotr Halama (including the project name)
 * Tomasz Stanisławek
+* Paweł Mleczko (AMU template)
