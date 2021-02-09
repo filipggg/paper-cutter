@@ -1,4 +1,11 @@
 
+<a name="4.1.0"></a>
+## 4.1.0 (2021-02-09)
+
+Enhancements
+
+* Add template for AMU theses
+
 <a name="4.0.1"></a>
 ## 4.0.1 (2021-01-13)
 
