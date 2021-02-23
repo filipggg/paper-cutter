@@ -1,4 +1,16 @@
 
+<a name="4.2.0"></a>
+## 4.2.0 (2021-02-23)
+
+Enhancements
+
+* Add \bycite command expanded to either "in \citet" or "by \citet"
+
+Bug fixes
+
+* Fix wrong citation in a sample main file
+* Add comments in the template files
+
 <a name="4.1.0"></a>
 ## 4.1.0 (2021-02-09)
 
