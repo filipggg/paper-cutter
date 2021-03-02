@@ -1,4 +1,11 @@
 
+<a name="4.2.1"></a>
+## 4.2.1 (2021-03-02)
+
+Bug fixes
+
+* Fix AMU template (broken \bycite)
+
 <a name="4.2.0"></a>
 ## 4.2.0 (2021-02-23)
 
