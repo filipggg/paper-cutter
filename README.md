@@ -47,7 +47,7 @@ git remote add overleaf https://git.overleaf.com/FUNNY-OVERLEAF-CODE
 git remote set-url origin YOUR-GIT-REPO
 ```
 
-7. Set credential helper so that stupid Overleaf won't ask about
+7. Set credential helper so that Overleaf won't ask about
    password: `git config credential.helper "cache --timeout=10000000"`
 8. Unfortunately, Overleaf will discard hidden files (`.*`) when a zip
    is uploaded, also file permissions will be somewhat broken
