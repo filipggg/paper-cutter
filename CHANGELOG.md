@@ -1,4 +1,11 @@
 
+<a name="4.3.0"></a>
+## 4.3.0 (2021-04-15)
+
+Changes
+
+* Switch to another AMU template (by Bartłomiej Przybylski)
+
 <a name="4.2.1"></a>
 ## 4.2.1 (2021-03-02)
 
