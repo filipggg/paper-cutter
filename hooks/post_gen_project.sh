@@ -92,7 +92,8 @@ elif [ "{{ cookiecutter.latex_template }}" = "amu" ]; then
     cp -r _latex-templates/amu-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/amu-template-meta.tex metadata.tex
     get_files "https://github.com/bprzybylski/amuthesis/archive/master.zip" \
-              amuthesis.cls
+              amuthesis.cls \
+              uam-logo.pdf
 fi
 
 if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then
