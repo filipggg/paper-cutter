@@ -7,8 +7,22 @@
 % PLEASE EDIT main.tex INSTEAD.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{amu-diploma-thesis}
+
+% Na podstawie https://github.com/bprzybylski/amuthesis/blob/master/thesis.tex
+
+\documentclass[oneside,polski,logo]{amuthesis}
+
+% Zdefiniuj kodowanie pliku źródłowego (domyślnie utf8)
 \usepackage[utf8]{inputenc}
+\usepackage{authblk}
+
+\input{metadata}
+
+% ======================================================== %
+% Dodatkowe pakiety wykorzystywane w pracy                 %
+% ======================================================== %
+
+\usepackage{lipsum}
 
 % ----------------------   PREAMBLE PART ------------------------------
 
@@ -23,28 +37,52 @@
 
 %%
 
-
-\input{metadata}
+% ======================================================== %
+% Zasadnicza część dokumentu                               %
+% ======================================================== %
 
 \begin{document}
 
-\Titlepage       %% strona tytułowa pracy
-\Statement       %% oświadczenie
-\tableofcontents %% spis treści
+% Strona tytułowa
+\maketitle
+% Oświadczenie
+\makestatement
 
-% streszczenie po polsku
+% Blok abstraktu w języku polskim
 \begin{streszczenie}
+\lipsum[1]
 \input{abstract-pl}
+
+\paragraph{Słowa kluczowe:} klasa
 \end{streszczenie}
 
+% Blok abstraktu w języku angielskim
 \begin{abstract}
+\lipsum[2]
 \input{abstract}
+
+\paragraph{Keywords:} klasa
 \end{abstract}
+
+% Opcjonalny blok dedykacji
+\begin{dedykacja}
+Tu możesz umieścić swoją dedykację.
+\end{dedykacja}
+
+% Spis treści
+\tableofcontents
+
+% ======================================================== %
+% Właściwa część pracy                                     %
+% ======================================================== %
 
 \input{main}
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
+
+
+\lipsum[3]
 
 \end{document}
 {% endraw %}

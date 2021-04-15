@@ -91,7 +91,8 @@ elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
 elif [ "{{ cookiecutter.latex_template }}" = "amu" ]; then
     cp -r _latex-templates/amu-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/amu-template-meta.tex metadata.tex
-    cp -r _latex-templates/amu-diploma-thesis.cls .
+    get_files "https://github.com/bprzybylski/amuthesis/archive/master.zip" \
+              amuthesis.cls
 fi
 
 if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then

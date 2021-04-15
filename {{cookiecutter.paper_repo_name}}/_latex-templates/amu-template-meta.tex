@@ -1,15 +1,66 @@
 
-\title{ {{ cookiecutter.paper_title }} }  %% tytuł pracy
-\entitle{English title}         %% tytuł w języku angielskim
-\author{ {{ cookiecutter.main_contributor_name }} }          %% imię i~nazwisko autora pracy
-\album{ {{ cookiecutter.album_no }}  }                  %% numer albumu
-\promotor{ {{ cookiecutter.supervisor }} }     %% nazwisko promotora
-\year{2021}                     %% rok obrony pracy
-\type{magisterska}              %% rodzaj pracy
-\course{ {{ cookiecutter.discipline }} }             %% kierunek studiów
-\speciality{ {{ cookiecutter.specialization }} }      %% specjalność studiów
-%% potrzebne do oświadczenia
-\date{15.03.2021}
-\gender{\male}                  %% należy wybrać \male lub \female
-\Sfirst{TAK/NIE}                %% proszę wpisać TAK lub NIE (zgoda na udostępnienie pracy w~czytelni)
-\Ssecond{TAK/NIE}               %% proszę wpisać TAK lub NIE (zgoda na ochronę praw autorskich)
+% --- Autorzy prac
+% --- --- Imię i nazwisko
+% --- --- Numer albumu
+% --- --- Płeć (M/K)
+\firstAuthor{ {{cookiecutter.main_contributor_name}} }
+\firstAlbum{ {{cookiecutter.album_no}} }
+\stsexFirstAuthor{M}
+
+%\secondAuthor{Autor Drugi}
+%\secondAlbum{234561}
+%\stsexSecondAuthor{M}
+
+%\thirdAuthor{Autor Trzeci}
+%\thirdAlbum{345612}
+%\stsexThirdAuthor{M}
+
+%\fourthAuthor{Autor Czwarty}
+%\fourthAlbum{456123}
+%\stsexFourthAuthor{F}
+
+% --- Tytuł pracy (w języku polskim i angielskim)
+\titlePL{ {{ cookiecutter.paper_title }} }
+\titleEN{My thesis}
+% --- Typ pracy (inżynierska, licencjacka, magisterska)
+\type{magisterska}
+% --- Wydział (wykaz skrótów):
+% --- --- WA    --- Wydział Anglistyki
+% --- --- WAiK  --- Wydział Antropologii i Kulturoznawstwa
+% --- --- WAr   --- Wydział Archeologii
+% --- --- WB    --- Wydział Biologii
+% --- --- WCh   --- Wydział Chemii
+% --- --- WFPiK --- Wydział Filologii Polskiej i Klasycznej
+% --- --- WFi   --- Wydział Filozoficzny
+% --- --- WF    --- Wydział Fizyki
+% --- --- WGSE  --- Wydział Geografii Społeczno-Ekonomicznej i Gospodarki Przestrzennej
+% --- --- WH    --- Wydział Historii
+% --- --- WMiI  --- Wydział Matematyki i Informatyki
+% --- --- WNGiG --- Wydział Nauk Geograficznych i Geologicznych
+% --- --- WNoS  --- Wydział Nauk o Sztuce
+% --- --- WNPiD --- Wydział Nauk Politycznych i Dziennikarstwa
+% --- --- WN    --- Wydział Neofilologii
+% --- --- WPiK  --- Wydział Psychologii i Kognitywistyki
+% --- --- WPAK  --- Wydział Pedagogiczno-Artystyczny w Kaliszu
+% --- --- WPiA  --- Wydział Prawa i Administracji
+% --- --- WS    --- Wydział Socjologii
+% --- --- WSE   --- Wydział Studiów Edukacyjnych
+% --- --- WT    --- Wydział Teologiczny
+% --- --- IKE   --- Instytut Kultury Europejskiej w Gnieźnie
+\faculty{WMiI}
+% --- Kierunek (w mianowniku)
+\field{ {{ cookiecutter.discipline }} }
+% --- Specjalność (w formie mianownikowej)
+% --- (ustaw puste, jeśli bez specjalności)
+\specialty{ {{ cookiecutter.specialization }} }
+% --- Promotor (w dopełniaczu)
+\supervisor{ {{ cookiecutter.supervisor }} }
+% --- Data złożenia pracy (Miasto, miesiąc rok)
+\date{Poznań, grudzień 2020}
+
+% --- Zgoda na udostępnienie pracy w czytelni (TAK/NIE)
+\stread{TAK}
+% --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
+\stprotect{TAK}
+% --- Data podpisania oświadczenia (Miasto, data)
+\stdate{Poznań, \today{} r.}

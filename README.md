@@ -143,4 +143,4 @@ Prepared by Filip Graliński (Applica.ai).
 * Łukasz Garncarek
 * Piotr Halama (including the project name)
 * Tomasz Stanisławek
-* Paweł Mleczko (AMU template)
+* Paweł Mleczko
