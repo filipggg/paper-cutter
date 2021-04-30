@@ -144,6 +144,7 @@ vcs.xml
 *.prv
 *.lot
 *.lof
+*.ft
 /auto
 {{cookiecutter.paper_id}}.pdf
 {{cookiecutter.paper_id}}.zip
