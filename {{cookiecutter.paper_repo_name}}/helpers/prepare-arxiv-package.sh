@@ -109,6 +109,9 @@ then
 elif [[ "$latex_template" == "eacl" ]]
 then
      copy_to_project eacl2021.sty acl.bst acl_natbib.bst
+elif [[ "$latex_template" == "neurips" ]]
+then
+     copy_to_project neurips_2021.sty
 elif [[ "$latex_template" == "poleval" ]]
 then
      copy_to_project poleval.bst poleval.cls
