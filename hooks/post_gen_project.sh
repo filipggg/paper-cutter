@@ -84,6 +84,11 @@ elif [ "{{ cookiecutter.latex_template }}" = "eacl" ]; then
     if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then
         cp -r _latex-templates/acl2020-template-appendix.tex the-appendix.tex
     fi
+elif [ "{{ cookiecutter.latex_template }}" == "neurips" ]; then
+    wget https://media.neurips.cc/Conferences/NeurIPS2021/Styles/neurips_2021.sty
+    cp -r _latex-templates/neurips-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/neurips-template-meta.tex metadata.tex
+    cp -r _latex-templates/neurips-checklist.tex checklist.tex
 elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
     cp -r _latex-templates/poleval-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/poleval-template-meta.tex metadata.tex
