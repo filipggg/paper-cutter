@@ -1,4 +1,3 @@
-
 \title{ {{ cookiecutter.paper_title }} }
 
 % The \author macro works with any number of authors. There are two commands
@@ -9,8 +8,11 @@
 % authors names on the first line, and the last on the second line, try using
 % \AND instead of \And before the third author name.
 
+{% raw %}
 \author{%
+{% endraw %}
   {{cookiecutter.main_contributor_name}}\thanks{Use footnote for providing further information
+{% raw %}
     about author (webpage, alternative address)---\emph{not} for acknowledging
     funding agencies.} \\
   Department of Computer Science\\
@@ -39,3 +41,4 @@
   % Address \\
   % \texttt{email} \\
 }
+{% endraw %}
