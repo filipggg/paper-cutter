@@ -1,4 +1,11 @@
 
+<a name="4.4.1"></a>
+## 4.4.1 (2021-04-30)
+
+Bug fixes
+
+* Minor fix in NeurIPS
+
 <a name="4.4.0"></a>
 ## 4.4.0 (2021-04-30)
 
