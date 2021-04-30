@@ -1,4 +1,16 @@
 
+<a name="4.4.0"></a>
+## 4.4.0 (2021-04-30)
+
+Enhancements
+
+* Add NeurIPS template
+
+Bug fixes
+
+* Add .ft files to .gitignore
+* Get rid of lorem ipsum in AMU template
+
 <a name="4.3.0"></a>
 ## 4.3.0 (2021-04-15)
 
