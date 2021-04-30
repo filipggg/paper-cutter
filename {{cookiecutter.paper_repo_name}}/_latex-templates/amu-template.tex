@@ -22,8 +22,6 @@
 % Dodatkowe pakiety wykorzystywane w pracy                 %
 % ======================================================== %
 
-\usepackage{lipsum}
-
 % ----------------------   PREAMBLE PART ------------------------------
 
 \input{config}
@@ -50,7 +48,6 @@
 
 % Blok abstraktu w języku polskim
 \begin{streszczenie}
-\lipsum[1]
 \input{abstract-pl}
 
 \paragraph{Słowa kluczowe:} klasa
@@ -58,7 +55,7 @@
 
 % Blok abstraktu w języku angielskim
 \begin{abstract}
-\lipsum[2]
+\input{abstract}
 \input{abstract}
 
 \paragraph{Keywords:} klasa
@@ -81,8 +78,6 @@ Tu możesz umieścić swoją dedykację.
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
-
-\lipsum[3]
 
 \end{document}
 {% endraw %}
