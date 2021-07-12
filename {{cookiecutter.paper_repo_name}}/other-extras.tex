@@ -37,4 +37,7 @@
 \newcommand{\gonitoscore}[1]{\gonitobarescore{#1} \gonitoref{#1}}
 % A reference and a score as two cells in a table
 \newcommand{\gonitoentry}[1]{\gonitoref{#1} & \minput{scores/#1.txt}}
+% A reference and a score as two cells in a table, the score will be
+% marked as the best (typeset in bold)
+\newcommand{\gonitobestentry}[1]{\gonitoref{#1} & \textbf{\minput{scores/#1.txt}}}
 {% endraw %}
