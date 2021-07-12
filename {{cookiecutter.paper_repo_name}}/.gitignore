@@ -145,6 +145,10 @@ vcs.xml
 *.lot
 *.lof
 *.ft
+*.tdo
+*.bcf
+*.lol
+*.run.xml
 /auto
 {{cookiecutter.paper_id}}.pdf
 {{cookiecutter.paper_id}}.zip
