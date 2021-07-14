@@ -24,7 +24,8 @@ following templates are handled:
 * EACL (`eacl`)
 * NeurIPS (`neurips`)
 * PolEval (`poleval`)
-* Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`)
+* Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`),
+  template prepared by Bartłomiej Przybylski (https://github.com/bprzybylski/amuthesis)
 
 If you are to use another template, prepare an MR to this repo first!
 Do not add directly to your specific paper.
