@@ -1,4 +1,15 @@
 
+<a name="4.4.2"></a>
+## 4.4.2 (2021-07-14)
+
+Improvements:
+
+* add gonitobestentry and eng commands
+* detect all .tex sources
+* improve gitignore
+* fix locale when running Autozoil
+* fix re-downloading NeurIPS files
+
 <a name="4.4.1"></a>
 ## 4.4.1 (2021-04-30)
 
