@@ -101,6 +101,23 @@ Switching to another conference or journal template is easy.
 6. Run `make` to generate PDF.
 7. If you have an appendix, make sure it is rendered correctly.
 
+Adding new conference/journal template
+--------------------------------------
+
+You should prepare a merge request similar to <https://git.wmi.amu.edu.pl/filipg/paper-cutter/commit/970e10ca52bed1bf293f99809d89aacd5c7ca44a>.
+
+Some notes:
+
+* the style files should be just downloaded from an external resources (see e.g. https://git.wmi.amu.edu.pl/filipg/paper-cutter/src/branch/example/hooks/post_gen_project.sh#L87)
+* you should take an example document (usually provided by the creators of a conference/journal template)
+  and turn it into a template, like e.g. <https://git.wmi.amu.edu.pl/filipg/paper-cutter/src/branch/example/%7b%7bcookiecutter.paper_repo_name%7d%7d/_latex-templates/neurips-template.tex>
+* metadata header (title, authors, etc.) should be given as a separate template file, see
+  <https://git.wmi.amu.edu.pl/filipg/paper-cutter/src/branch/example/%7b%7bcookiecutter.paper_repo_name%7d%7d/_latex-templates/neurips-template-meta.tex>
+* remember that [Jinja2](https://jinja.palletsprojects.com/en/3.0.x/) is used as the template engine
+* sometimes you will need to add Jinja `{% raw %}` and `{% endraw %}` directives to escape LaTeX mark-up
+  conflicting with Jinja directives (usually the whole or parts of `...-template.tex` and `...-template-meta.tex`
+  files.
+
 Versioning the template
 -----------------------
 
