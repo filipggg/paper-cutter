@@ -1,4 +1,11 @@
 
+<a name="4.4.3"></a>
+## 4.4.3 (2021-09-14)
+
+Improvements:
+
+* Minor improvements to the Poleval template
+
 <a name="4.4.2"></a>
 ## 4.4.2 (2021-07-14)
 
