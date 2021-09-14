@@ -1,12 +1,19 @@
 {% raw %}
 % Here is how the title is formatted on the first page of the article
-\chapter{Four-Horned Unicorns: Dialectal Studies \\ of a Recently Discovered Species}
+{% endraw %}
+\chapter{ {{ cookiecutter.paper_title }} }
+{% raw %}
 
 % Here is the short title in the running head
-\fancyhead[LO]{\textnormal{\small{Four-Horned Unicorns: Dialectal Studies}}}
+{% endraw %}
+\fancyhead[LO]{\textnormal{\small{ {{ cookiecutter.paper_title }}  }}}
+{% raw %}
 
 % Here we have:
 % - in square brackets: author(s) in the running head
 % - in curly brackets: author(s) on the first page of the article
-\chapterauthor[John Doe, Venkatanarasimha Rajuvaripet]{John Doe \textnormal{(Institute for Natural Language Processing, University of Southern Atlantis)}, Venkatanarasimha Rajuvaripet \textnormal{(Institute for Unicorn Studies, Brahmapura)}}
 {% endraw %}
+\chapterauthor[ {{ cookiecutter.main_contributor }} ]{ {{ cookiecutter.main_contributor }}
+  \textnormal{(Institute for Natural Language Processing, University
+    of Southern Atlantis)}, Venkatanarasimha Rajuvaripet
+  \textnormal{(Institute for Unicorn Studies, Brahmapura)}}
