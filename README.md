@@ -23,6 +23,7 @@ following templates are handled:
 * EMNLP (`emnlp`)
 * EACL (`eacl`)
 * NeurIPS (`neurips`)
+* IEEE Access (`ieee-access`)
 * PolEval (`poleval`)
 * Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`),
   template prepared by Bartłomiej Przybylski (https://github.com/bprzybylski/amuthesis)

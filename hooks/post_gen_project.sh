@@ -90,6 +90,22 @@ elif [ "{{ cookiecutter.latex_template }}" == "neurips" ]; then
     cp -r _latex-templates/neurips-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/neurips-template-meta.tex metadata.tex
     cp -r _latex-templates/neurips-checklist.tex checklist.tex
+elif [ "{{ cookiecutter.latex_template }}" == "ieee-access" ]; then
+    get_files "https://template-selector.ieee.org/api/ieee-template-selector/template/541/download" \
+              bullet.png \
+              ieeeaccess.cls \
+              IEEEtran.cls \
+              ieeeaccess.cls \
+              spotcolor.sty \
+              logo.png \
+              notaglinelogo.png
+    cp -r _latex-templates/ieee-access-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/ieee-access-template-meta.tex metadata.tex
+    cp -r _latex-templates/ieee-access-template-biographies.tex biographies.tex
+    mkdir -p images
+    cp -r _latex-templates/ieee-access-template-photo.png images/sample-photo.png
+    # not compatible with tikz (and todonotes which is based on tikz)
+    sed -i 's/\\usepackage\[textsize=tiny\]{todonotes}/\\usepackage{todo}/' other-extras.tex
 elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
     cp -r _latex-templates/poleval-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/poleval-template-meta.tex metadata.tex
