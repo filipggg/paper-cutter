@@ -13,6 +13,8 @@ CURRENT_DIR=$(shell pwd)
 AUTOZOIL_DIR?=/opt/autozoil
 AUTOZOIL_LOCALE={{cookiecutter.locale}}
 
+space := $(subst ,, )
+
 ifneq (,$(wildcard appendix.tex))
 ifeq ($(LATEX_TEMPLATE),acl)
 IS_APPENDIX_SEPARATE=yes
@@ -62,7 +64,7 @@ sentences.txt: $(PAPER_ID).pdf helpers/get-sentences.sh helpers/pdf-to-plain-tex
 
 scores/%.txt:
 	mkdir -p scores
-	curl "https://gonito.net/api/txt/score/"$* -o $@
+	curl "https://gonito.net/api/txt/score/$(subst $(space),%20,$*)" -o "$@"
 
 autozoil-log.txt: $(CONTENT_TEX_SOURCES)
 	cd $(AUTOZOIL_DIR) && set -o pipefail && ./autozoil --locale $(AUTOZOIL_LOCALE) $(CONTENT_TEX_SOURCES_WITH_DIR) --alt-log-file $(CURRENT_DIR)/$(PAPER_ID).log | tee $(CURRENT_DIR)/$@

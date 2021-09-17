@@ -17,4 +17,4 @@ for my $filepath (@ARGV) {
     close($ih);
 }
 
-print join(" ", map { "scores/${_}.txt" } sort keys %found);
+print join(" ", map { "scores/${_}.txt" } map { s/ /\\ /g; $_} sort keys %found);
