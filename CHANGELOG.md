@@ -1,4 +1,15 @@
 
+<a name="4.5.0"></a>
+## 4.5.0 (2021-09-17)
+
+Enhancements:
+
+* Add IEEE Access template
+
+Bug fixes
+
+* Fix downloading metrics with a space in their names
+
 <a name="4.4.3"></a>
 ## 4.4.3 (2021-09-14)
 
