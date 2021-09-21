@@ -3,10 +3,15 @@
 
 title: {{cookiecutter.paper_title}}
 authors:
-  - author: Jan Iksinski
+  - author: {{cookiecutter.main_contributor_name}}
+    level: 1
     contributions:
       - did this
       - did that
   - author: Józef Igrekowski
+    level: 1
+    contributions:
+      - did something else
+  - author: Adam Abacki
     contributions:
       - did something else

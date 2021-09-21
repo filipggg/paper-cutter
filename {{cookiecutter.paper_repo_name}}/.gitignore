@@ -147,6 +147,8 @@ vcs.xml
 *.ft
 *.tdo
 *.bcf
+*.vrb
+*.snm
 *.lol
 *.run.xml
 /auto
@@ -160,3 +162,5 @@ the-appendix.pdf
 sentences.txt
 arxiv-{{cookiecutter.paper_id}}.pdf
 arxiv-{{cookiecutter.paper_id}}.tar.gz
+helpers/*-contribution-declaration.tex
+helpers/*-contribution-declaration.pdf

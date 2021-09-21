@@ -1,0 +1,88 @@
+{% raw %}
+\documentclass[a4paper]{article}
+\usepackage{booktabs}
+\usepackage{bibentry}
+%\usepackage[style=verbose]{biblatex}
+\usepackage[total={170mm,277mm}, left=20mm, top=10mm]{geometry}
+\thispagestyle{empty}
+\renewcommand{\labelitemi}{--}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage[backend=biber,maxnames=12]{biblatex}
+\bibliography{../bibliography.bib}
+
+
+\begin{document}
+
+\begin{flushright}
+  {{tday}}
+\end{flushright}
+
+\medskip
+
+\begin{center}
+  {\bf Declaration}
+\end{center}
+
+\bigskip
+
+I hereby declare that the contribution to the following paper:
+
+\smallskip
+
+\fullcite{this-paper}
+
+\smallskip
+
+\noindent is correctly characterized in the table below{% if nb_of_levels == 0 %}.{% elif nb_of_levels == 1 %} ({{ level_symbols[0] }} denotes equal contributions).{% else %} ({% for lix in range(nb_of_levels) %}{% if lix == nb_of_levels - 1 %}{} and {{ level_symbols[lix] }}{} denote groups of equal contributions).{% elif lix == 0 %}{{ level_symbols[lix] }}{% else %}, {{ level_symbols[lix] }}{% endif %}{% endfor %}{% endif %}
+\medskip
+
+
+
+\begin{center}
+\begin{longtable}{lc}
+\toprule
+\addlinespace[0.05cm]
+Contributor & Description of main tasks \\
+\addlinespace[0.05cm]
+\midrule
+\addlinespace[0.1cm]
+{% for author in data['authors'] %}
+{{ author['author'] }}{% if 'level' in author %}{{level_symbols[author['level']-1]}}{% endif %}
+&
+\begin{minipage} [t] {0.6\textwidth}
+\begin{itemize}
+\itemsep=0em
+{% for citem in author['contributions'] %}
+\item {{citem}}
+{% endfor %}
+\end{itemize}
+\end{minipage} \\
+{% if loop.index == loop.length %}
+\addlinespace[0.25cm]
+{% else %}
+\addlinespace[0.5cm]
+{% endif %}
+{% endfor %}
+\bottomrule
+\end{longtable}
+\end{center}
+
+\vskip 0.8cm
+
+\begin{tabularx}{\textwidth}{XXXX}
+{% for author in data['authors'] %}
+{{ author['author'] }}
+{% if loop.index == loop.length %}
+\\
+{% elif loop.index % 4 == 0 %}
+\\ \addlinespace[0.5cm]
+{% else %}
+&
+{% endif %}
+{% endfor %}
+\end{tabularx}
+
+\end{document}
+{% endraw %}
