@@ -1,4 +1,11 @@
 
+<a name="4.6.0"></a>
+## 4.6.0 (2021-09-21)
+
+Enhancements:
+
+* Add generating declarations of contributions
+
 <a name="4.5.0"></a>
 ## 4.5.0 (2021-09-17)
 
