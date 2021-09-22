@@ -1,4 +1,11 @@
 
+<a name="4.6.1"></a>
+## 4.6.1 (2021-09-22)
+
+Bug fixes:
+
+* Fix issues in PolEval template
+
 <a name="4.6.0"></a>
 ## 4.6.0 (2021-09-21)
 
