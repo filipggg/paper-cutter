@@ -105,13 +105,13 @@ titlepage.pdf: titlepage.tex
 endif
 
 
-helpers/$(PAPER_ID)-contribution-declaration.pdf: helpers/$(PAPER_ID)-contribution-declaration.tex
+helpers/$(PAPER_ID)-contribution-declaration.pdf: helpers/$(PAPER_ID)-contribution-declaration.tex bibliography.bib
 	(cd helpers && pdflatex $(PAPER_ID)-contribution-declaration.tex)
 	(cd helpers && biber $(PAPER_ID)-contribution-declaration)
 	(cd helpers && pdflatex $(PAPER_ID)-contribution-declaration.tex)
 
 helpers/$(PAPER_ID)-contribution-declaration.tex: contributions.yaml helpers/contribution-declaration.tex.tmpl helpers/generate-contribution-declaration.py
-	(cd helpers && ./generate-contribution-declaration.py) < $< > $@
+	(cd helpers && python3 generate-contribution-declaration.py) < $< > $@
 
 
 clean:
