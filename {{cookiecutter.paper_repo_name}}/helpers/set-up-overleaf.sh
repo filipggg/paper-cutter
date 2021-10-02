@@ -21,6 +21,7 @@ make source-pack
 
 source_pack={{cookiecutter.paper_id}}.zip
 
+echo ""
 echo "Go to Overleaf, click New Project / Upload Project,"
 echo "then upload $source_pack from here ($(pwd)/$source_pack)"
 
@@ -42,7 +43,7 @@ mv $here_dir ${here_dir}-backup
 
 git clone $overleaf_git_url $here_dir
 
-cd $overleaf_git_id
+cd $here_dir
 
 git remote add overleaf $overleaf_git_url
 git remote set-url origin $original_git_url
