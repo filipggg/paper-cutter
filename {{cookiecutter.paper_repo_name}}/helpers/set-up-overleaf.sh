@@ -62,6 +62,9 @@ git commit -m 'Bring back all the files'
 
 perl -pne 's{OVERLEAF_GIT_URL=}{OVERLEAF_GIT_URL='$overleaf_git_url'}' -i helpers/vars
 
+git add helpers/vars
+git commit -m 'Set vars'
+
 git push overleaf master
 git push origin master
 
