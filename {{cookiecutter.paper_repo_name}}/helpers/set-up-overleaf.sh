@@ -34,8 +34,13 @@ overleaf_git_url=$REPLY
 
 overleaf_git_id=$(basename $overleaf_git_url)
 
+
 cd ..
-git clone $overleaf_git_url
+
+backup_dir=${here_dir}-backup
+mv $here_dir ${here_dir}-backup
+
+git clone $overleaf_git_url $here_dir
 
 cd $overleaf_git_id
 
@@ -44,7 +49,7 @@ git remote set-url origin $original_git_url
 
 git config credential.helper "cache --timeout=10000000"
 
-cp ../$here_dir/.cookiecutter.yml .
+cp ../$backup_dir/.cookiecutter.yml .
 
 git add .cookiecutter.yml
 git commit -m 'Back cookiecutter config'
@@ -61,10 +66,5 @@ git push origin master
 
 cd ..
 
-backup_dir=${here_dir}-backup
-
-mv $here_dir ${here_dir}-backup
-mv $overleaf_git_id $here_dir
-
 echo "DONE"
-echo "Left ${here_dir}-backup, now type 'cd ..' and you can remove it"
+echo "Left ${backup_dir}, now type 'cd ..' and you can remove it"
