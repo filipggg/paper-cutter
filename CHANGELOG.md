@@ -1,4 +1,15 @@
 
+<a name="4.7.0"></a>
+## 4.7.0 (2021-10-02)
+
+Enhancements:
+
+* Add a script for easier setup interoperatibility with Overleaf
+
+Bug fixes:
+
+* Fix issues in generating contribution declarations
+
 <a name="4.6.1"></a>
 ## 4.6.1 (2021-09-22)
 
