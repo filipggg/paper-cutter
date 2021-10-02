@@ -1,9 +1,18 @@
-#!/bin/bash -x
+#!/bin/bash -e
 
 echo "Setting up interoperability with Overleaf..."
 echo "Note that you need ability to clone repos from Overleaf."
 
 original_git_url=$(git remote get-url origin)
+
+echo "Make sure $original_git_url exists at your git server."
+echo "It should be created as en empty repo, *uncheck* option"
+echo "'Initialize repository with a README' or similar."
+
+echo ""
+echo "Press ENTER to start"
+read
+
 here_dir=$(basename $PWD)
 
 
@@ -45,7 +54,7 @@ cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout maste
 git add --all
 git commit -m 'Bring back all the files'
 
-perl -pne 's/OVERLEAF_GIT_URL=/OVERLEAF_GIT_URL='$overleaf_git_url'/' -i helpers/vars
+perl -pne 's{OVERLEAF_GIT_URL=}{OVERLEAF_GIT_URL='$overleaf_git_url'}' -i helpers/vars
 
 git push overleaf master
 git push origin master

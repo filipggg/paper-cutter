@@ -31,11 +31,14 @@ following templates are handled:
 If you are to use another template, prepare an MR to this repo first!
 Do not add directly to your specific paper.
 
-Interoperation with Overleaf
-----------------------------
+Interoperatibility with Overleaf
+--------------------------------
 
-Overleaf handles git but in an imperfect way (to put it mildly). It's better to upload a
-package to Overleaf first:
+Overleaf handles git but in an imperfect way (to put it mildly).
+It's better to upload a package to Overleaf first.
+
+You can do this by running `helpers/set-up-overleaf.sh` after creating a project
+or carrying out the following steps manually:
 
 1. Create a project locally.
 2. Run `make`
