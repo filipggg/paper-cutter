@@ -37,8 +37,8 @@ elif [ "{{ cookiecutter.latex_template }}" = "tacl" ]; then
     cp -r _latex-templates/tacl2018v2-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/tacl2018v2-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "acl" ]; then
-    wget 'https://github.com/acl-org/ACLPUB/blob/master/templates/latex/acl_natbib.bst'
-    wget 'https://github.com/acl-org/ACLPUB/blob/master/templates/latex/acl.sty'
+    wget 'https://raw.githubusercontent.com/acl-org/ACLPUB/master/templates/latex/acl.sty'
+    wget 'https://raw.githubusercontent.com/acl-org/ACLPUB/master/templates/latex/acl_natbib.bst'
     # fix_noexpand_issue acl2020.sty
     cp -r _latex-templates/acl-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/acl-template-meta.tex metadata.tex
