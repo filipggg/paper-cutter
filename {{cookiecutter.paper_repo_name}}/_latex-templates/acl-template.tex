@@ -22,15 +22,14 @@
 %%e.agirre@ehu.es or Sergi.Balari@uab.es
 %% and that of ACL 08 by Joakim Nivre and Noah Smith
 
-\documentclass[11pt,a4paper]{article}
-{% endraw %}
-\usepackage[hyperref]{
-  {{ cookiecutter.latex_template + '2021' if cookiecutter.latex_template == 'eacl' else cookiecutter.latex_template + '2020' }}
-}
-{% raw %}
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+
 \usepackage{times}
 \usepackage{latexsym}
-\renewcommand{\UrlFont}{\ttfamily\small}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 % This is not strictly necessary, and may be commented out,
 % but it will improve the layout of the manuscript,

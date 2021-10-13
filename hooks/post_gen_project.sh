@@ -37,14 +37,13 @@ elif [ "{{ cookiecutter.latex_template }}" = "tacl" ]; then
     cp -r _latex-templates/tacl2018v2-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/tacl2018v2-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "acl" ]; then
-    get_files "http://acl2020.org/downloads/acl2020-templates.zip" \
-              acl2020.sty \
-              acl_natbib.bst
-    fix_noexpand_issue acl2020.sty
-    cp -r _latex-templates/acl2020-template.tex {{cookiecutter.paper_id}}.tex
-    cp -r _latex-templates/acl2020-template-meta.tex metadata.tex
+    wget 'https://github.com/acl-org/ACLPUB/blob/master/templates/latex/acl_natbib.bst'
+    wget 'https://github.com/acl-org/ACLPUB/blob/master/templates/latex/acl.sty'
+    # fix_noexpand_issue acl2020.sty
+    cp -r _latex-templates/acl-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/acl-template-meta.tex metadata.tex
     if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then
-        cp -r _latex-templates/acl2020-template-appendix.tex the-appendix.tex
+        cp -r _latex-templates/acl-template-appendix.tex the-appendix.tex
     fi
 elif [ "{{ cookiecutter.latex_template }}" = "nle" ]; then
     cp -r _latex-templates/nle-template.tex {{cookiecutter.paper_id}}.tex
