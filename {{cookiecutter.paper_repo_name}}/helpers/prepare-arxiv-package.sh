@@ -87,7 +87,7 @@ then
     copy_to_project tacl2018v2.sty acl.bst acl_natbib.bst
 elif [[ "$latex_template" == "acl" ]]
 then
-     copy_to_project acl2020.sty acl.bst acl_natbib.bst
+     copy_to_project acl.sty acl.bst acl_natbib.bst
 elif [[ "$latex_template" == "nle" ]]
 then
      copy_to_project nle.cls nlelike.bst cup_logo.eps cup_logo-eps-converted-to.pdf
