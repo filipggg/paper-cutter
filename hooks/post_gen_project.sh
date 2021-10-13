@@ -73,16 +73,6 @@ elif [ "{{ cookiecutter.latex_template }}" = "emnlp" ]; then
     cp -r _latex-templates/emnlp2020-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/emnlp2020-template-meta.tex metadata.tex
     cp -r _latex-templates/emnlp2020-template-appendix.tex the-appendix.tex
-elif [ "{{ cookiecutter.latex_template }}" = "eacl" ]; then
-    get_files "https://2021.eacl.org/downloads/eacl2021-templates.zip" \
-              acl_natbib.bst \
-              eacl2021.sty
-    cp -r _latex-templates/acl2020-template.tex {{cookiecutter.paper_id}}.tex
-    cp -r _latex-templates/acl2020-template-meta.tex metadata.tex
-
-    if [ "{{ cookiecutter.with_appendix }}" = "yes" ]; then
-        cp -r _latex-templates/acl2020-template-appendix.tex the-appendix.tex
-    fi
 elif [ "{{ cookiecutter.latex_template }}" == "neurips" ]; then
     rm -f neurips_2021.sty
     wget https://media.neurips.cc/Conferences/NeurIPS2021/Styles/neurips_2021.sty

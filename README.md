@@ -21,7 +21,6 @@ following templates are handled:
 * COLING (`coling`)
 * LLNCS (`llncs`)
 * EMNLP (`emnlp`)
-* EACL (`eacl`)
 * NeurIPS (`neurips`)
 * IEEE Access (`ieee-access`)
 * PolEval (`poleval`)
