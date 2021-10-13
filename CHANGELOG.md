@@ -1,4 +1,12 @@
 
+<a name="4.8.0"></a>
+## 4.8.0 (2021-10-13)
+
+Changes:
+
+* Update ACL (Rolling Review) template
+* Remove EACL template
+
 <a name="4.7.0"></a>
 ## 4.7.0 (2021-10-02)
 
