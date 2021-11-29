@@ -1,4 +1,4 @@
-FROM loxygen:loxygen/autozoil
+FROM loxygen/autozoil:latest
 
 MAINTAINER Filip Gralinski <filipg@amu.edu.pl>
 
