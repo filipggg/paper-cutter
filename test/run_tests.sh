@@ -12,7 +12,8 @@ check()
     echo "*** TESTING $config_file"
     echo "========================================================================================="
     rm -rf "$PAPER_DIR"
-    python3 -m cookiecutter https://gitlab.com/filipg/paper-cutter --config-file "$config_file" --no-input --checkout master
+    echo "TESTTTTTTTTTTTTTTTTTT"
+    cookiecutter https://gitlab.com/filipg/paper-cutter --config-file "$config_file" --no-input --checkout master
     cd "$PAPER_DIR"
     make clean
     make
