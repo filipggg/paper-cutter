@@ -1,4 +1,4 @@
-FROM loxygen/arch-latex:latest
+FROM loxygen/autozoil:latest
 
 MAINTAINER Filip Gralinski <filipg@amu.edu.pl>
 
