@@ -11,5 +11,6 @@ pipeline {
                      sh 'bash run_tests.sh'
                   }
             }
-    }
+       }
+   }
 }
