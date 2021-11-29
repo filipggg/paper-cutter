@@ -1,7 +1,7 @@
-FROM archlinux:latest
+FROM loxygen:autozoil
 
 MAINTAINER Filip Gralinski <filipg@amu.edu.pl>
 
 USER root
 
-RUN pacman -Sy && pacman --noconfirm -S python-cookiecutter && pacman --noconfirm -Scc
+RUN pacman -Sy --noconfirm  && pacman --noconfirm -S python-cookiecutter && pacman --noconfirm -Scc
