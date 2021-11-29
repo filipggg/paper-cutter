@@ -12,7 +12,7 @@ check()
     echo "*** TESTING $config_file"
     echo "========================================================================================="
     rm -rf "$PAPER_DIR"
-    echo "TESTTTTTTTTTTTTTTTTTT"
+    echo "TESTTTTTTTTTTTTTTTTTTT"
     cookiecutter https://gitlab.com/filipg/paper-cutter --config-file "$config_file" --no-input --checkout master
     cd "$PAPER_DIR"
     make clean
