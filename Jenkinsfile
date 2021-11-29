@@ -7,7 +7,7 @@ pipeline {
                   def customImage = docker.build("paper-cutter:${env.BUILD_ID}")
                   customImage.inside() {
                       dir('test') {
-                         sh 'export PATH="$PATH:/usr/bin/vendor_perl"; export fakehomedir=`pwd`/fakehome; mkdir $fakehomedir; HOME=$fakehomedir bash run_tests.sh'
+                         sh 'export PATH="$PATH:/usr/bin/vendor_perl"; export fakehomedir=`pwd`/fakehome; rm -rf $fakehomedir; mkdir $fakehomedir; HOME=$fakehomedir bash run_tests.sh'
                       }
                   }
                }
