@@ -7,7 +7,7 @@ pipeline {
                   def customImage = docker.build("paper-cutter:${env.BUILD_ID}")
                   customImage.inside() {
                       dir('test') {
-                         sh 'touch foo.txt'
+                         sh 'whoami'
                          sh 'bash run_tests.sh'
                       }
                   }
