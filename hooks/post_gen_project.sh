@@ -79,6 +79,15 @@ elif [ "{{ cookiecutter.latex_template }}" == "neurips" ]; then
     cp -r _latex-templates/neurips-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/neurips-template-meta.tex metadata.tex
     cp -r _latex-templates/neurips-checklist.tex checklist.tex
+elif [ "{{ cookiecutter.latex_template }}" == "icml" ]; then
+    get_files "https://media.icml.cc/Conferences/ICML2022/Styles/icml2022.zip" \
+              algorithm.sty \
+              algorithmic.sty \
+              fancyhdr.sty \
+              icml2022.bst \
+              icml2022.sty
+    cp -r _latex-templates/icml-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/icml-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" == "ieee-access" ]; then
     get_files "https://template-selector.ieee.org/api/ieee-template-selector/template/541/download" \
               bullet.png \

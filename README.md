@@ -22,6 +22,7 @@ following templates are handled:
 * LLNCS (`llncs`)
 * EMNLP (`emnlp`)
 * NeurIPS (`neurips`)
+* ICML (`icml`)
 * IEEE Access (`ieee-access`)
 * PolEval (`poleval`)
 * Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`),

@@ -112,6 +112,13 @@ then
 elif [[ "$latex_template" == "neurips" ]]
 then
      copy_to_project neurips_2021.sty
+elif [[ "$latex_template" == "icml" ]]
+then
+     copy_to_project algorithm.sty \
+                     algorithmic.sty \
+                     fancyhdr.sty \
+                     icml2022.bst \
+                     icml2022.sty
 elif [[ "$latex_template" == "ieee-access" ]]
 then
      copy_to_project bullet.png ieeeaccess.cls IEEEtran.cls ieeeaccess.cls spotcolor.sty logo.png notaglinelogo.png
