@@ -84,10 +84,10 @@ then
     :
 elif [[ "$latex_template" == "tacl" ]]
 then
-    copy_to_project tacl2018v2.sty acl.bst acl_natbib.bst
+    copy_to_project tacl2018v2.sty acl_natbib.bst
 elif [[ "$latex_template" == "acl" ]]
 then
-     copy_to_project acl.sty acl.bst acl_natbib.bst
+     copy_to_project acl.sty acl_natbib.bst
 elif [[ "$latex_template" == "nle" ]]
 then
      copy_to_project nle.cls nlelike.bst cup_logo.eps cup_logo-eps-converted-to.pdf
@@ -99,16 +99,16 @@ then
      :
 elif [[ "$latex_template" == "coling" ]]
 then
-     copy_to_project coling2020.sty acl.bst
+     copy_to_project coling2020.sty coling.bst
 elif [[ "$latex_template" == "llncs" ]]
 then
     copy_to_project llncs.cls splncs04.bst
 elif [[ "$latex_template" == "emnlp" ]]
 then
-     copy_to_project emnlp2020.sty acl.bst acl_natbib.bst
+     copy_to_project emnlp2020.sty acl_natbib.bst
 elif [[ "$latex_template" == "eacl" ]]
 then
-     copy_to_project eacl2021.sty acl.bst acl_natbib.bst
+     copy_to_project eacl2021.sty acl_natbib.bst
 elif [[ "$latex_template" == "neurips" ]]
 then
      copy_to_project neurips_2021.sty
