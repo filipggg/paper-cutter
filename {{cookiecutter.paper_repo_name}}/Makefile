@@ -75,7 +75,7 @@ autozoil.xml: $(CONTENT_TEX_SOURCES)
 $(PAPER_ID).zip:
 	$(clean_latex_stuff)
 	rm -rf *~
-	zip -r $@ . -x '*.git*' '*.zip'
+	zip -r $@ . -x '*.git/*' '*.zip'
 
 ifeq ($(HAS_SUPPLEMENT),yes)
 supplement.zip: the-appendix.pdf
