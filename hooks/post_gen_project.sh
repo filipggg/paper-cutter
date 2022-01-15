@@ -59,8 +59,8 @@ elif [ "{{ cookiecutter.latex_template }}" = "pw-thesis" ]; then
     cp -r _optional_files/_pw-thesis/* .
 elif [ "{{ cookiecutter.latex_template }}" = "coling" ]; then
     get_files "https://coling2020.org/coling2020.zip" \
-              coling2020/coling.bst \
-              coling2020/coling2020.sty
+              coling.bst \
+              coling2020.sty
     cp -r _latex-templates/coling2020-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/coling2020-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "llncs" ]; then
