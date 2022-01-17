@@ -1,4 +1,18 @@
 
+<a name="5.0.0"></a>
+## 5.0.0 (2022-01-17)
+
+Enhancements:
+
+* Add ICML template
+
+Breaking changes:
+
+* Remove a lot of files from the main directory
+* In particular, all .sty and .bst are downloaded now
+* Moved non-essential scripts to helpers/
+* Move autozoil/other-extras.tex simply into extras.tex
+
 <a name="4.8.0"></a>
 ## 4.8.0 (2021-10-13)
 
