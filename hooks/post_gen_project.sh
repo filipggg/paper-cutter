@@ -46,6 +46,11 @@ elif [ "{{ cookiecutter.latex_template }}" = "acl" ]; then
         cp -r _latex-templates/acl-template-appendix.tex the-appendix.tex
     fi
 elif [ "{{ cookiecutter.latex_template }}" = "nle" ]; then
+    get_files "https://www.cambridge.org/core/services/aop-file-manager/file/5d2c9092615ba8773a3a582f" \
+              nle.cls \
+              nlelike.bst \
+              cup_logo-eps-converted-to.pdf \
+              cup_logo.eps
     cp -r _latex-templates/nle-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/nle-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "sigconf" ]; then
