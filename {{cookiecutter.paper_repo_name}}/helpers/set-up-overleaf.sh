@@ -50,6 +50,16 @@ git remote set-url origin $original_git_url
 
 git config credential.helper "cache --timeout=10000000"
 
+cp ../$backup_dir/.cookiecutter.yml .
+
+git add .cookiecutter.yml
+git commit -m 'Back cookiecutter config'
+
+cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 4.7.0 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists
+
+git add --all
+git commit -m 'Bring back all the files'
+
 perl -pne 's{OVERLEAF_GIT_URL=}{OVERLEAF_GIT_URL='$overleaf_git_url'}' -i helpers/vars
 
 git add helpers/vars
