@@ -55,15 +55,12 @@ git remote set-url origin YOUR-GIT-REPO
 
 7. Set credential helper so that Overleaf won't ask about
    password: `git config credential.helper "cache --timeout=10000000"`
-8. Unfortunately, Overleaf will discard hidden files (`.*`) when a zip
-   is uploaded, also file permissions will be somewhat broken
-9.  … so you need to copy `.cookiecutter.yml` file and re-apply the template (`cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 4.8.0 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`)
-10. Re-commit the files (including recovered `.*` files).
-11. Push the repo to Overleaf (fortunately, the `.*` will be treated
+8. Re-commit the files (including recovered `.*` files).
+9. Push the repo to Overleaf (fortunately, the `.*` will be treated
    correctly when this is done by git): `git push overleaf master`
-12. Push the repo to GitLab. `git push origin master`
-13. Set the Overleaf git remote in `helpers/vars`
-14. Now you can synchronize between GitLab repo and Overleaf manually or using `helpers/synchro.sh` script
+10. Push the repo to GitLab. `git push origin master`
+11. Set the Overleaf git remote in `helpers/vars`
+12. Now you can synchronize between GitLab repo and Overleaf manually or using `helpers/synchro.sh` script
 
 Updating package with updated template
 --------------------------------------
