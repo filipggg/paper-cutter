@@ -49,6 +49,9 @@ elif [ "{{ cookiecutter.latex_template }}" = "nle" ]; then
     cp -r _latex-templates/nle-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/nle-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "sigconf" ]; then
+    get_files "https://www.acm.org/binaries/content/assets/publications/consolidated-tex-template/acmart-primary.zip" \
+              acmart.cls \
+              ACM-Reference-Format.bst
     cp -r _latex-templates/sigconf-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/sigconf-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "pw-thesis" ]; then
