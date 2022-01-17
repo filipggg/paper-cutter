@@ -132,7 +132,7 @@ fi
 
 copy_to_project bibliography.bib
 
-perl -pne 's/^\s*\\usepackage\{xurl\}$//' -i "$project_dir/other-extras.tex"
+perl -pne 's/^\s*\\usepackage\{xurl\}$//' -i "$project_dir/extras.tex"
 
 heredir=`pwd`
 

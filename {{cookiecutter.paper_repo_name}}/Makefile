@@ -7,7 +7,7 @@ HAS_APPENDIX={{cookiecutter.with_appendix}}
 LATEX_TEMPLATE={{cookiecutter.latex_template}}
 WITH_ARXIV_PACKAGE={{cookiecutter.with_arxiv_package}}
 
-CONTENT_TEX_SOURCES=$(filter-out $(PAPER_ID).tex config.tex other-extras.tex autozoil-extras.tex extras.tex metadata.tex preamble.tex the-appendix.tex, $(shell ls **/*.tex))
+CONTENT_TEX_SOURCES=$(filter-out $(PAPER_ID).tex config.tex extras.tex metadata.tex preamble.tex the-appendix.tex, $(shell ls **/*.tex))
 
 CURRENT_DIR=$(shell pwd)
 AUTOZOIL_DIR?=/opt/autozoil
