@@ -16,4 +16,4 @@ default_context:
   specialization: '{{ cookiecutter.specialization }}'
   supervisor: '{{ cookiecutter.supervisor }}'
   album_no: '{{ cookiecutter.album_no }}'
-  beeminder: '{{ cookiecutter.beeminder_support }}'
+  beeminder_support: '{{ cookiecutter.beeminder_support }}'
