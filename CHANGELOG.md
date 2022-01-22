@@ -1,4 +1,17 @@
 
+<a name="5.1.0"></a>
+## 5.1.0 (2022-01-22)
+
+Enhancements
+
+* Add Beeminder support (you can add an [Odometer
+  goal](https://help.beeminder.com/article/68-odometer-goals) to track
+  pages
+
+Bug fixes:
+
+* Remove unwanted line in stats output
+
 <a name="5.0.0"></a>
 ## 5.0.0 (2022-01-17)
 
