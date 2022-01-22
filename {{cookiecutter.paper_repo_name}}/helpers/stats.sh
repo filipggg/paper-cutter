@@ -1,7 +1,6 @@
 #!/bin/bash
 
 here_dir=$(dirname "$0")
-echo $here_dir
 
 pdf_file="$1"
 
