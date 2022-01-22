@@ -49,6 +49,11 @@ stats.txt: $(PAPER_ID).pdf helpers/stats.sh
 	bash helpers/stats.sh $< > $@
 	cat $@
 
+{% if cookiecutter.beeminder_support == 'yes' %}
+logbeeminder: helpers/logbeeminder.py stats.txt
+	python3	$<
+{% endif %}
+
 $(PAPER_ID).pdf: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) $(EXTRA_PDFS)
 	pdflatex $<
 	bibtex $(PAPER_ID)

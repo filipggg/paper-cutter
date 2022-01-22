@@ -135,6 +135,10 @@ if [ "{{ cookiecutter.extra_locale }}" = "pl_PL" -o "{{ cookiecutter.locale }}" 
     cp -r _optional_files/_pl_files/* .
 fi
 
+if [ "{{ cookiecutter.beeminder_support }}" = "yes" ]; then
+    cp -r _optional_files/_beeminder_support/* .
+fi
+
 rm -rf _latex-templates _optional_files
 
 if [ -e .git ]; then
