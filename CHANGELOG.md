@@ -6,7 +6,7 @@ Enhancements
 
 * Add Beeminder support (you can add an [Odometer
   goal](https://help.beeminder.com/article/68-odometer-goals) to track
-  pages
+  pages)
 
 Bug fixes:
 
