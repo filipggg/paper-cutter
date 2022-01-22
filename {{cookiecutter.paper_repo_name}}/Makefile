@@ -7,7 +7,7 @@ HAS_APPENDIX={{cookiecutter.with_appendix}}
 LATEX_TEMPLATE={{cookiecutter.latex_template}}
 WITH_ARXIV_PACKAGE={{cookiecutter.with_arxiv_package}}
 
-CONTENT_TEX_SOURCES=$(filter-out $(PAPER_ID).tex config.tex metadata.tex preamble.tex the-appendix.tex, $(shell ls **/*.tex))
+CONTENT_TEX_SOURCES=$(filter-out $(PAPER_ID).tex config.tex extras.tex metadata.tex preamble.tex the-appendix.tex, $(shell ls **/*.tex))
 
 CURRENT_DIR=$(shell pwd)
 AUTOZOIL_DIR?=/opt/autozoil
@@ -54,7 +54,7 @@ logbeeminder: helpers/logbeeminder.py stats.txt
 	python3	$<
 {% endif %}
 
-$(PAPER_ID).pdf: $(PAPER_ID).tex preamble.tex metadata.tex extras.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) $(EXTRA_PDFS)
+$(PAPER_ID).pdf: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) $(EXTRA_PDFS)
 	pdflatex $<
 	bibtex $(PAPER_ID)
 	pdflatex $<
@@ -100,7 +100,7 @@ ifeq ($(WITH_ARXIV_PACKAGE),yes)
 arxiv-$(PAPER_ID).pdf: arxiv-$(PAPER_ID).tar.gz helpers/generate-pdf-from-arxiv-package.sh
 	bash -xe helpers/generate-pdf-from-arxiv-package.sh $< $@
 
-arxiv-$(PAPER_ID).tar.gz: $(PAPER_ID).tex preamble.tex metadata.tex extras.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) helpers/prepare-arxiv-package.sh helpers/flatten-structure.pl
+arxiv-$(PAPER_ID).tar.gz: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES) bibliography.bib $(SCOREFILES) helpers/prepare-arxiv-package.sh helpers/flatten-structure.pl
 	bash -xe helpers/prepare-arxiv-package.sh $(LATEX_TEMPLATE) $@
 endif
 
