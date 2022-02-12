@@ -1,4 +1,14 @@
 
+<a name="5.2.1"></a>
+## 5.2.1 (2022-02-12)
+
+Bug fixes:
+
+* Issue with contribution declaration
+
+Improvements:
+
+* Improve the defaults for thesis templates
 
 <a name="5.2.0"></a>
 ## 5.2.0 (2022-02-12)
