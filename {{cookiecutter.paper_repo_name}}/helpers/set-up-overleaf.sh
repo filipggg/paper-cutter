@@ -32,7 +32,8 @@ echo "paste here and press ENTER"
 
 read
 overleaf_git_url=$REPLY
-
+# remove "git clone" in case it was directly copied from Overleaf
+overleaf_git_url=${overleaf_git_url#git clone }
 overleaf_git_id=$(basename $overleaf_git_url)
 
 
