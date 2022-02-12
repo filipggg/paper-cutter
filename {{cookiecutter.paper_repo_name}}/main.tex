@@ -1,5 +1,9 @@
 
+{% if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' %}
 \section{Main}
+{% else %}
+\chapter{Main}
+{% endif %}
 
 This is a~sample paper~\cite{gonito2016}.
 See the experiments described \bycite{gonito2016}.
@@ -7,11 +11,20 @@ See the experiments described \bycite{gonito2016}.
 Please put your content here.
 
 
-
+{% if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' %}
 \subsection{Gonito}
+{% else %}
+\section{Main}
+{% endif %}
 
 Gonito submission should be referenced like this
 \gonitoscore{6ab4979e4629c5559feba452b7ca74c0cac89ebb}%
 \footnote{Reference codes to repositories stored at
 Gonito.net~\cite{gonito2016} are given in curly brackets. Such a~repository may be also accessed by going
 to \url{http://gonito.net/q} and entering the code there.}
+
+{% if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' %}
+\section{Yet another section}
+{% else %}
+\chapter{Yet another chapter}
+{% endif %}
