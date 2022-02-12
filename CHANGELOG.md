@@ -1,4 +1,11 @@
 
+<a name="5.2.2"></a>
+## 5.2.2 (2022-02-12)
+
+Bug fixes:
+
+* Updating with the right version
+
 <a name="5.2.1"></a>
 ## 5.2.1 (2022-02-12)
 
