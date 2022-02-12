@@ -9,3 +9,4 @@ default_context:
   specialization: 'sztuczna inteligencja'
   supervisor: 'prof. dr hab. Jan Nowak'
   album_no: '123456'
+  contribution_declaration: 'no'

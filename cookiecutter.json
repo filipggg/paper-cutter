@@ -16,5 +16,6 @@
     "specialization": "none",
     "supervisor": "none",
     "album_no": "none",
-    "beeminder_support": "no"
+    "beeminder_support": "no",
+    "contribution_declaration": "yes"
 }

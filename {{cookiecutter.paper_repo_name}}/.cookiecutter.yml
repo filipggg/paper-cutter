@@ -17,3 +17,4 @@ default_context:
   supervisor: '{{ cookiecutter.supervisor }}'
   album_no: '{{ cookiecutter.album_no }}'
   beeminder_support: '{{ cookiecutter.beeminder_support }}'
+  contribution_declaration: '{{ cookiecutter.contribution_declaration }}'

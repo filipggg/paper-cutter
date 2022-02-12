@@ -38,9 +38,17 @@ SCOREFILES=$(shell perl extract-score-files.pl $(CONTENT_TEX_SOURCES))
 clean_latex_stuff=rm -rf *.aux *.nav *.toc *.log *.out *.blg *.bbl autozoil-log.txt autozoil.xml the-appendix.pdf supplement.zip $(PAPER_ID).pdf $(PAPER_ID).zip arxiv-$(PAPER_ID).pdf arxiv-$(PAPER_ID).tar.gz abstract.txt sentences.txt stats.txt $(EXTRA_PDFS) helpers/$(PAPER_ID)-contribution-declaration.tex helpers/$(PAPER_ID)-contribution-declaration.pdf helpers/*.aux helpers/*.bbl helpers/*.bcf helpers/*.blg helpers/*.log helpers/*.run.xml
 
 ifeq ($(HAS_SUPPLEMENT),yes)
+{% if cookiecutter.contribution_declaration == 'yes' %}
 all: $(PAPER_ID).pdf abstract.txt supplement.zip stats.txt sentences.txt helpers/$(PAPER_ID)-contribution-declaration.pdf
+{% else %}
+all: $(PAPER_ID).pdf abstract.txt supplement.zip stats.txt sentences.txt
+{% endif %}
 else
+{% if cookiecutter.contribution_declaration == 'yes' %}
 all: $(PAPER_ID).pdf abstract.txt stats.txt sentences.txt helpers/$(PAPER_ID)-contribution-declaration.pdf
+{% else %}
+all: $(PAPER_ID).pdf abstract.txt stats.txt sentences.txt
+{% endif %}
 endif
 
 source-pack: $(PAPER_ID).zip
@@ -109,7 +117,7 @@ titlepage.pdf: titlepage.tex
 	xelatex $<
 endif
 
-
+{% if cookiecutter.contribution_declaration == 'yes' %}
 helpers/$(PAPER_ID)-contribution-declaration.pdf: helpers/$(PAPER_ID)-contribution-declaration.tex bibliography.bib
 	(cd helpers && pdflatex $(PAPER_ID)-contribution-declaration.tex)
 	(cd helpers && biber $(PAPER_ID)-contribution-declaration)
@@ -117,7 +125,7 @@ helpers/$(PAPER_ID)-contribution-declaration.pdf: helpers/$(PAPER_ID)-contributi
 
 helpers/$(PAPER_ID)-contribution-declaration.tex: contributions.yaml helpers/contribution-declaration.tex.tmpl helpers/generate-contribution-declaration.py
 	(cd helpers && python3 generate-contribution-declaration.py) < $< > $@
-
+{% endif %}
 
 clean:
 	$(clean_latex_stuff)

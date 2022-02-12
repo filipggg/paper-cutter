@@ -139,6 +139,10 @@ if [ "{{ cookiecutter.beeminder_support }}" = "yes" ]; then
     cp -r _optional_files/_beeminder_support/* .
 fi
 
+if [ "{{ cookiecutter.contribution_declaration }}" = "yes" ]; then
+    cp -r _optional_files/_contribution_declaration/* .
+fi
+
 rm -rf _latex-templates _optional_files
 
 if [ -e .git ]; then
