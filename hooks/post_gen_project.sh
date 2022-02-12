@@ -146,7 +146,12 @@ fi
 rm -rf _latex-templates _optional_files
 
 if [ -e .git ]; then
-    git checkout README.md main.tex abstract.tex preamble.tex metadata.tex bibliography.bib contributions.yaml
+    git checkout README.md main.tex abstract.tex preamble.tex metadata.tex bibliography.bib
+
+    if [ "{{ cookiecutter.contribution_declaration }}" = "yes" ]; then
+        git checkout contributions.yaml
+    fi
+
     for f in helpers/vars abstract-pl.tex keywords.tex keywords-pl.tex appendix.tex
     do
         git checkout $f || true
