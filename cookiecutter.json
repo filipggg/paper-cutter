@@ -10,12 +10,12 @@
     "git_host": "git.wmi.amu.edu.pl",
     "locale": "en_US",
     "with_appendix": "no",
-    "extra_locale": "{{ 'none' if cookiecutter.latex_template != 'pw-thesis' else 'pl_PL' }}",
-    "with_arxiv_package": "{{ 'yes' if cookiecutter.latex_template != 'pw-thesis' else 'no' }}",
+    "extra_locale": "{{ 'none' if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' else 'pl_PL' }}",
+    "with_arxiv_package": "{{ 'yes' if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' else 'no' }}",
     "discipline": "none",
     "specialization": "none",
     "supervisor": "none",
     "album_no": "none",
     "beeminder_support": "no",
-    "contribution_declaration": "yes"
+    "contribution_declaration": "{{ 'yes' if cookiecutter.latex_template != 'pw-thesis' and cookiecutter.latex_template != 'amu' else 'no' }}"
 }
