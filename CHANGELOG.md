@@ -1,8 +1,16 @@
 
+
+<a name="5.2.0"></a>
+## 5.2.0 (2022-02-12)
+
+Enhancements:
+
+* Contribution declarations are optional now
+
 <a name="5.1.0"></a>
 ## 5.1.0 (2022-01-22)
 
-Enhancements
+Enhancements:
 
 * Add Beeminder support (you can add an [Odometer
   goal](https://help.beeminder.com/article/68-odometer-goals) to track
