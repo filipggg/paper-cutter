@@ -21,7 +21,7 @@
 
 % --- Tytuł pracy (w języku polskim i angielskim)
 \titlePL{ {{ cookiecutter.paper_title }} }
-\titleEN{My thesis}
+\titleEN{PUT YOUR TITLE IN ENGLISH!!!!!!!!}
 % --- Typ pracy (inżynierska, licencjacka, magisterska)
 \type{magisterska}
 % --- Wydział (wykaz skrótów):
@@ -56,8 +56,10 @@
 % --- Promotor (w dopełniaczu)
 \supervisor{ {{ cookiecutter.supervisor }} }
 % --- Data złożenia pracy (Miasto, miesiąc rok)
-\date{Poznań, grudzień 2020}
+\newcommand{\monthname}{\ifcase \month \or styczeń\or luty\or marzec\or kwiecień\or maj%
+\or czerwiec\or lipiec\or sierpień\or wrzesień\or październik\or listopad\or grudzień\fi}
 
+\date{Poznań, \monthname{} \the\year}
 % --- Zgoda na udostępnienie pracy w czytelni (TAK/NIE)
 \stread{TAK}
 % --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
