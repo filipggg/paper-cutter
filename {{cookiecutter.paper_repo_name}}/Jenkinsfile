@@ -1,46 +1,28 @@
 pipeline {
 
-    agent { label 'tau2013z' }
+    agent {
+        docker {
+            image 'loxygen/autozoil'
+        }
+    }
+
 
     stages {
 
-        stage ('get-autozoil') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'autozoil']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitlab.com/filipg/autozoil.git']]])
-            }
-        }
-
 	stage ('build-pdf') {
             steps {
-                sh """
+              withEnv(["HOME=${env.WORKSPACE}"]) {
+                          sh """
+pip3 install pyyaml pyminder
 make clean
 make
 """
-            }
+            }}
 
             post {
                 always {
                     archiveArtifacts artifacts: '{{cookiecutter.paper_id}}.pdf', fingerprint: true
                     archiveArtifacts artifacts: 'stats.txt', fingerprint: true
-
-                    plot csvFileName: 'stats.txt',
-                         csvSeries: [[
-                            file: 'stats.txt',
-                            exclusionValues: '',
-                            displayTableFlag: false,
-                            inclusionFlag: 'OFF',
-                            url: '']],
-                         group: 'Plot Group',
-                         title: 'Plot Title',
-                         style: 'line',
-                         exclZero: false,
-                         keepRecords: false,
-                         logarithmic: false,
-                         numBuilds: '',
-                         useDescr: false,
-                         yaxis: '',
-                         yaxisMaximum: '',
-                         yaxisMinimum: ''
                 }
             }
 
@@ -50,17 +32,29 @@ make
             steps {
             sh """
 rm -f autozoil.xml
-AUTOZOIL_DIR=autozoil make autozoil.xml
+make autozoil.xml
 """
             }
 
             post {
                 always {
                     archiveArtifacts artifacts: 'autozoil.xml', fingerprint: true
-                    junit 'autozoil.xml'
+//                    junit testResults: 'autozoil.xml'
                 }
             }
 	}
 
+
+{% if cookiecutter.beeminder_support == 'yes' %}
+        stage ('beeminder') {
+            steps {
+               withCredentials([string(credentialsId: 'Beeminder', variable: 'BEEMINDER_TOKEN')]) {
+                          sh """
+BEEMINDER_USER=ptlen make logbeeminder
+"""
+          }
+        }
+      }
+{% endif %}
     }
 }
