@@ -6,5 +6,5 @@ variables:
 # THIS IS AN UGLY WORK-AROUND
 include:
   - project: 'research/paper-cutter'
-    ref: '5.2.2'
+    ref: '5.2.3'
     file: 'main.yml'
