@@ -1,4 +1,11 @@
 
+<a name="5.3.0"></a>
+## 5.3.0 (2022-04-13)
+
+Enhancements:
+
+* Add ieee-conf template
+
 <a name="5.2.3"></a>
 ## 5.2.3 (2022-02-14)
 
