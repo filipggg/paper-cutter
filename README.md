@@ -24,6 +24,7 @@ following templates are handled:
 * NeurIPS (`neurips`)
 * ICML (`icml`)
 * IEEE Access (`ieee-access`)
+* IEEE Conf, e.g. FedCSIS (`ieee-conf`)
 * PolEval (`poleval`)
 * Msc thesis at Adam Mickiewicz University, Faculty of Mathematics and Computer Science (`amu`),
   template prepared by Bartłomiej Przybylski (https://github.com/bprzybylski/amuthesis)

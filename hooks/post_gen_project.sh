@@ -115,6 +115,9 @@ elif [ "{{ cookiecutter.latex_template }}" == "ieee-access" ]; then
     cp -r _latex-templates/ieee-access-template-photo.png images/sample-photo.png
     # not compatible with tikz (and todonotes which is based on tikz)
     sed -i 's/\\usepackage\[textsize=tiny\]{todonotes}/\\usepackage{todo}/' extras.tex
+elif [ "{{ cookiecutter.latex_template }}" == "ieee-conf" ]; then
+    cp -r _latex-templates/ieee-conf-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/ieee-conf-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
     cp -r _latex-templates/poleval-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/poleval-template-meta.tex metadata.tex
