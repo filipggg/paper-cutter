@@ -124,7 +124,7 @@ then
      copy_to_project bullet.png ieeeaccess.cls IEEEtran.cls ieeeaccess.cls spotcolor.sty logo.png notaglinelogo.png
 elif [[ "$latex_template" == "ieee-conf" ]]
 then
-     ;
+    :
 elif [[ "$latex_template" == "poleval" ]]
 then
      copy_to_project poleval.bst poleval.cls
