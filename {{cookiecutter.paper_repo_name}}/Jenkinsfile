@@ -30,11 +30,12 @@ make
 
 	stage ('autozoil') {
             steps {
-            sh """
+              withEnv(["HOME=${env.WORKSPACE}"]) {
+              sh """
 rm -f autozoil.xml
 make autozoil.xml
 """
-            }
+            }}
 
             post {
                 always {
