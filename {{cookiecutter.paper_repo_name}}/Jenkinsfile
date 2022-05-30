@@ -13,7 +13,9 @@ pipeline {
             steps {
               withEnv(["HOME=${env.WORKSPACE}"]) {
                           sh """
+{% if cookiecutter.beeminder_support == 'yes' %}
 pip3 install pyyaml pyminder
+{% endif %}
 make clean
 make
 """
