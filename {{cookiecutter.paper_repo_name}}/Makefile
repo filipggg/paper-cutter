@@ -83,8 +83,7 @@ endif
 endif
 
 ifeq ($(SENTENCE_EXTRACTION_METHOD),from-tex)
-sentences.txt: $(PAPER_ID).tex helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-refere
-nces.pl
+sentences.txt: $(PAPER_ID).tex helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-references.pl
 	bash helpers/get-sentences.sh $< from-tex > $@
 else
 sentences.txt: $(PAPER_ID).pdf helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-references.pl
