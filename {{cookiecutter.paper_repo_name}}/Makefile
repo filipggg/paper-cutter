@@ -85,7 +85,7 @@ endif
 ifeq ($(SENTENCE_EXTRACTION_METHOD),from-tex)
 sentences.txt: $(PAPER_ID).tex helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-refere
 nces.pl
-       bash helpers/get-sentences.sh $< from-tex > $@
+	bash helpers/get-sentences.sh $< from-tex > $@
 else
 sentences.txt: $(PAPER_ID).pdf helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-references.pl
 	bash helpers/get-sentences.sh $< > $@
@@ -105,7 +105,7 @@ else
 autozoil: autozoil.xml autozoil-external-check.xml
 
 autozoil-external-check.xml: sentences.txt
-        curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sentences.txt" $(EXTERNAL_PLAIN_TEXT_CHECKER) > $@
+	curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sentences.txt" $(EXTERNAL_PLAIN_TEXT_CHECKER) > $@
 endif
 
 autozoil.xml: $(CONTENT_TEX_SOURCES)
