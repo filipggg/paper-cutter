@@ -13,6 +13,8 @@ CURRENT_DIR=$(shell pwd)
 AUTOZOIL_DIR?=/opt/autozoil
 AUTOZOIL_LOCALE={{cookiecutter.locale}}
 
+EXTERNAL_PLAIN_TEXT_CHECKER=
+
 space := $(subst ,, )
 
 ifneq (,$(wildcard appendix.tex))
@@ -95,6 +97,16 @@ scores/%.txt:
 
 autozoil-log.txt: $(CONTENT_TEX_SOURCES)
 	cd $(AUTOZOIL_DIR) && set -o pipefail && ./autozoil --locale $(AUTOZOIL_LOCALE) $(CONTENT_TEX_SOURCES_WITH_DIR) --alt-log-file $(CURRENT_DIR)/$(PAPER_ID).log | tee $(CURRENT_DIR)/$@
+
+
+ifeq ($(EXTERNAL_PLAIN_TEXT_CHECKER),)
+autozoil: autozoil.xml
+else
+autozoil: autozoil.xml autozoil-external-check.xml
+
+autozoil-external-check.xml: sentences.txt
+        curl -X POST -H "Content-Type: multipart/form-data" -F "file=@sentences.txt" $(EXTERNAL_PLAIN_TEXT_CHECKER) > $@
+endif
 
 autozoil.xml: $(CONTENT_TEX_SOURCES)
 	cd $(AUTOZOIL_DIR) && set -o pipefail && ./autozoil --locale $(AUTOZOIL_LOCALE) $(CONTENT_TEX_SOURCES_WITH_DIR) --format xml --alt-log-file $(CURRENT_DIR)/$(PAPER_ID).log --exit-with-zero > $(CURRENT_DIR)/autozoil.xml

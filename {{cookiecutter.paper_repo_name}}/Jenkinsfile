@@ -35,13 +35,14 @@ make
               withEnv(["HOME=${env.WORKSPACE}"]) {
               sh """
 rm -f autozoil.xml
-make autozoil.xml
+make autozoil
 """
             }}
 
             post {
                 always {
-                    archiveArtifacts artifacts: 'autozoil.xml', fingerprint: true
+                    archiveArtifacts artifacts: 'autozoil*.xml', fingerprint: true
+                    junit testResults: 'autozoil-external-check.xml',  skipPublishingChecks: true
 //                    junit testResults: 'autozoil.xml'
                 }
             }
