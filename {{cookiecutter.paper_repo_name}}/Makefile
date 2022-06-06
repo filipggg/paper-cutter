@@ -72,8 +72,22 @@ $(PAPER_ID).pdf: $(PAPER_ID).tex preamble.tex metadata.tex $(CONTENT_TEX_SOURCES
 abstract.txt: abstract.tex
 	cat $< | perl -pne 's/noqa\{[^}]+\}//g' | detex > $@
 
+SENTENCE_EXTRACTION_METHOD=from-pdf
+
+ifeq ($(LATEX_TEMPLATE),amu)
+ifeq ($(AUTOZOIL_LOCALE),pl_PL)
+SENTENCE_EXTRACTION_METHOD=from-tex
+endif
+endif
+
+ifeq ($(SENTENCE_EXTRACTION_METHOD),from-tex)
+sentences.txt: $(PAPER_ID).tex helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-refere
+nces.pl
+       bash helpers/get-sentences.sh $< from-tex > $@
+else
 sentences.txt: $(PAPER_ID).pdf helpers/get-sentences.sh helpers/pdf-to-plain-text.sh helpers/strip-references.pl
 	bash helpers/get-sentences.sh $< > $@
+endif
 
 scores/%.txt:
 	mkdir -p scores
