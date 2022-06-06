@@ -1,4 +1,17 @@
 
+<a name="5.3.1"></a>
+## 5.3.1 (2022-06-06)
+
+Enhancements:
+
+* (Optionall) run an external checker
+
+Bug fixes:
+
+* Improve extracting sentences from Polish "amu" works
+* Fix proselint fail
+* Do not install pyminder if not needed
+
 <a name="5.3.0"></a>
 ## 5.3.0 (2022-04-13)
 
