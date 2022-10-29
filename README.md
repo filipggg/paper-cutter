@@ -6,8 +6,8 @@ The template itself is in the `{{cookiecutter.paper_id}}-paper`.
 In order to generate a project from the template:
 
 * install cookiecutter
-* find a paper-cutter tag applicable (usually the latest tag listed at <https://git.wmi.amu.edu.pl/filipg/paper-cutter/releases>), say 5.3.1
-* run: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.3.1`
+* find a paper-cutter tag applicable (usually the latest tag listed at <https://git.wmi.amu.edu.pl/filipg/paper-cutter/releases>), say 5.4.0
+* run: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.0`
 
 You will be asked to choose a LaTeX template, at the moment the
 following templates are handled:
@@ -59,7 +59,7 @@ git remote set-url origin YOUR-GIT-REPO
    password: `git config credential.helper "cache --timeout=10000000"`
 8. Unfortunately, Overleaf will discard hidden files (`.*`) when a zip
    is uploaded, also file permissions will be somewhat broken
-9.  … so you need to copy `.cookiecutter.yml` file and re-apply the template (`cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.3.1 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`)
+9.  … so you need to copy `.cookiecutter.yml` file and re-apply the template (`cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.0 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`)
 10. Re-commit the files (including recovered `.*` files).
 11. Push the repo to Overleaf (fortunately, the `.*` will be treated
    correctly when this is done by git): `git push overleaf master`
@@ -73,10 +73,10 @@ Updating package with updated template
 To keep your codebase in sync with template you need to occasionally reapply the template.
 Here's how:
 
-* find a paper-cutter tag applicable, say 5.3.1
+* find a paper-cutter tag applicable, say 5.4.0
 * (do *not* refer to master in your projects!)
 * go to project root
-* run: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.3.1 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`
+* run: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.0 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`
 * check changes with git
 
 Editing the files
@@ -99,7 +99,7 @@ Switching to another conference or journal template is easy.
    If not, get in touch with Filip Graliński.
 2. Commit or stash any uncommitted changes.
 3. Change the `latex_template` value accordingly in the `.cookiecutter.yml` file. Commit the changes.
-4. Re-run the template (as if updating, see above: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.3.1 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`).
+4. Re-run the template (as if updating, see above: `cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.0 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists`).
 5. Compare `metadata.tex` against the right metadata template file
    (`*/*-template-meta.tex` in `_latex-templates/`) and make any fixes
    needed. This is the only thing that needs to be done manually

@@ -1,4 +1,16 @@
 
+<a name="5.4.0"></a>
+## 5.4.0 (2022-10-29)
+
+Enhancements:
+
+* Add SCITEPRESS template
+
+Bug fixes:
+
+* Fix downloading LLNCS template
+
+
 <a name="5.3.1"></a>
 ## 5.3.1 (2022-06-06)
 
