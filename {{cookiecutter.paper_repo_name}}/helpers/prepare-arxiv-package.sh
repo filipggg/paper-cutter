@@ -119,6 +119,13 @@ then
                      fancyhdr.sty \
                      icml2022.bst \
                      icml2022.sty
+elif [[ "$latex_template" == "scitepress" ]]
+then
+    copy_to_project apalike.bst \
+                    apalike.sty \
+                    article.cls \
+                    orcid.eps \
+                    SCITEPRESS.sty
 elif [[ "$latex_template" == "ieee-access" ]]
 then
      copy_to_project bullet.png ieeeaccess.cls IEEEtran.cls ieeeaccess.cls spotcolor.sty logo.png notaglinelogo.png

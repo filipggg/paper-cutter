@@ -118,6 +118,15 @@ elif [ "{{ cookiecutter.latex_template }}" == "ieee-access" ]; then
 elif [ "{{ cookiecutter.latex_template }}" == "ieee-conf" ]; then
     cp -r _latex-templates/ieee-conf-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/ieee-conf-template-meta.tex metadata.tex
+elif [ "{{ cookiecutter.latex_template }}" == "scitepress" ]; then
+    get_files "https://www.scitepress.org/documents/SCITEPRESS_Conference_Latex.zip" \
+              apalike.bst \
+              apalike.sty \
+              article.cls \
+              orcid.eps \
+              SCITEPRESS.sty
+    cp -r _latex-templates/scitepress-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/scitepress-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "poleval" ]; then
     cp -r _latex-templates/poleval-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/poleval-template-meta.tex metadata.tex
