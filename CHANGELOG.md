@@ -1,4 +1,11 @@
 
+<a name="5.4.1"></a>
+## 5.4.1 (2022-10-29)
+
+Bug fixes:
+
+* Fix SCITEPRESS template
+
 <a name="5.4.0"></a>
 ## 5.4.0 (2022-10-29)
 
