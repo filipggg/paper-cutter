@@ -1,4 +1,14 @@
 
+
+<a name="5.4.2"></a>
+## 5.4.2 (2022-11-09)
+
+Bug fixes:
+
+* Fix running on MacOS
+* Download ACM template correctly
+* Remove deprecated egrep/fgrep
+
 <a name="5.4.1"></a>
 ## 5.4.1 (2022-10-29)
 
