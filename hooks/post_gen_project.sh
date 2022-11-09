@@ -6,7 +6,7 @@ get_files()
     shift
     dump_dir=$(mktemp -d)
     dumped_file=$dump_dir/file.zip
-    wget -O $dumped_file "$url"
+    wget -U 'paper-cutter' -O $dumped_file "$url"
     (cd $dump_dir && unzip -j file.zip)
     for file in $@
     do
