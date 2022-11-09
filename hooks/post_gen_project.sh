@@ -25,7 +25,7 @@ fix_noexpand_issue()
 {
     # see https://tex.stackexchange.com/questions/487428/patch-failed-in-emnlp-style-template
     file_to_be_patched="$1"
-    sed -i 's|{\\errmessage{\\noexpand patch failed}}|{}|g' "$1"
+    sed -i~ 's|{\\errmessage{\\noexpand patch failed}}|{}|g' "$1"
 }
 
 if [ "{{ cookiecutter.latex_template }}" = "vanilla" ]; then
@@ -114,7 +114,7 @@ elif [ "{{ cookiecutter.latex_template }}" == "ieee-access" ]; then
     mkdir -p images
     cp -r _latex-templates/ieee-access-template-photo.png images/sample-photo.png
     # not compatible with tikz (and todonotes which is based on tikz)
-    sed -i 's/\\usepackage\[textsize=tiny\]{todonotes}/\\usepackage{todo}/' extras.tex
+    sed -i~ 's/\\usepackage\[textsize=tiny\]{todonotes}/\\usepackage{todo}/' extras.tex
 elif [ "{{ cookiecutter.latex_template }}" == "ieee-conf" ]; then
     cp -r _latex-templates/ieee-conf-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/ieee-conf-template-meta.tex metadata.tex

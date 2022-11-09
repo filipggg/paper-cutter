@@ -128,6 +128,7 @@ MacOS Requirements
 ------------
 
 ```
+brew install cookiecutter
 brew install texlive
 brew install biber
 brew install pyyaml
