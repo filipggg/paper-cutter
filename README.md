@@ -124,6 +124,16 @@ Some notes:
   conflicting with Jinja directives (usually the whole or parts of `...-template.tex` and `...-template-meta.tex`
   files.
 
+MacOS Requirements
+------------
+
+```
+brew install texlive
+brew install biber
+brew install pyyaml
+pip3 install syntok jinja2 arxiv_latex_cleaner
+```
+
 Versioning the template
 -----------------------
 
