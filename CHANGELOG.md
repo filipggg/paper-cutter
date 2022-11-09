@@ -1,4 +1,10 @@
 
+<a name="5.4.3"></a>
+## 5.4.3 (2022-11-09)
+
+Bug fixes:
+
+* Fix updating on MacOS
 
 <a name="5.4.2"></a>
 ## 5.4.2 (2022-11-09)
