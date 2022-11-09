@@ -49,7 +49,7 @@ handle_subdir()
             then
                 perl helpers/flatten-structure.pl < "$f" > "$dst"
             else
-                cp $f $dst
+                cp "$f" "$dst"
             fi
         done
     fi
@@ -57,6 +57,7 @@ handle_subdir()
 
 handle_subdir images
 handle_subdir figures
+handle_subdir plots
 handle_subdir scores
 handle_subdir inputs
 

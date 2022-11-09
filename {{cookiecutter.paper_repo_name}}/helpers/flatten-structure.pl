@@ -8,7 +8,7 @@ use strict;
 binmode(STDIN, ':utf8');
 binmode(STDOUT, ':utf8');
 
-my $subdir_regexp = qr{(?:figures|images)};
+my $subdir_regexp = qr{(?:figures|images|plots)};
 
 sub fix_subdirs {
     my ($p) = @_;
