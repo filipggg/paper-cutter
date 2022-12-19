@@ -72,7 +72,7 @@ elif [ "{{ cookiecutter.latex_template }}" = "coling" ]; then
     cp -r _latex-templates/coling2020-template.tex {{cookiecutter.paper_id}}.tex
     cp -r _latex-templates/coling2020-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "llncs" ]; then
-    get_files "https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v4" \
+    get_files "https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v6" \
               llncs.cls \
               splncs04.bst
     cp -r _latex-templates/llncs-template.tex {{cookiecutter.paper_id}}.tex
