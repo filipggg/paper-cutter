@@ -1,4 +1,12 @@
 
+<a name="5.4.5"></a>
+## 5.4.5 (2022-12-20)
+
+Improvements:
+
+* fill in some fields in LLNCS
+* add test for amu-en
+
 <a name="5.4.4"></a>
 ## 5.4.4 (2022-12-19)
 
