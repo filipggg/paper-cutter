@@ -1,4 +1,11 @@
 
+<a name="5.4.6"></a>
+## 5.4.6 (2022-12-20)
+
+Bug fixes:
+
+* Fix setting up Overleaf
+
 <a name="5.4.5"></a>
 ## 5.4.5 (2022-12-20)
 

@@ -56,7 +56,7 @@ cp ../$backup_dir/.cookiecutter.yml .
 git add .cookiecutter.yml
 git commit -m 'Back cookiecutter config'
 
-cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.3 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists
+cookiecutter https://git.wmi.amu.edu.pl/filipg/paper-cutter.git --checkout 5.4.6 --output-dir .. --config-file .cookiecutter.yml --no-input --overwrite-if-exists
 
 git add --all
 git commit -m 'Bring back all the files'
