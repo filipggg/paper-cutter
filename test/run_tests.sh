@@ -16,7 +16,7 @@ check()
     cd "$PAPER_DIR"
     make clean
     make
-    if [[ "$config_file" != "configs/pw-thesis.yml" && "$config_file" != "configs/amu.yml" && "$config_file" != "configs/ieee-access.yml" ]]
+    if [[ "$config_file" != "configs/pw-thesis.yml" && "$config_file" != "configs/amu.yml" && "$config_file" != "configs/ieee-access.yml" && "$config_file" != "configs/amu-en.yml" ]]
     then
         make arxiv-$PAPER_ID.tar.gz
     fi

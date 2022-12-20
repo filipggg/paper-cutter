@@ -1,0 +1,12 @@
+
+default_context:
+  latex_template: 'amu'
+  locale: 'pl_PL'
+  with_appendix: 'no'
+  extra_locale: 'en_US'
+  with_arxiv_package: 'no'
+  discipline: 'informatyka'
+  specialization: 'sztuczna inteligencja'
+  supervisor: 'prof. dr hab. Jan Nowak'
+  album_no: '123456'
+  contribution_declaration: 'no'
