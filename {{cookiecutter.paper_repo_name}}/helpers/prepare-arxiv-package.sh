@@ -100,7 +100,9 @@ then
      :
 elif [[ "$latex_template" == "coling" ]]
 then
-     copy_to_project coling2020.sty coling.bst
+     copy_to_project lrec-coling2024-natbib.bst \
+              lrec-coling2024.sty \
+              languageresource.bib
 elif [[ "$latex_template" == "llncs" ]]
 then
     copy_to_project llncs.cls splncs04.bst

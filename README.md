@@ -18,7 +18,7 @@ following templates are handled:
 * Natural Language Engineering journal (`nle`),
 * ACM SIGCONF template (`sigconf`), e.g. for the SIGIR conference,
 * MSc thesis at Warsaw University of Technology (`pw-thesis`)
-* COLING (`coling`)
+* COLING (& LREC, `coling`)
 * LLNCS (`llncs`)
 * EMNLP (`emnlp`)
 * NeurIPS (`neurips`)

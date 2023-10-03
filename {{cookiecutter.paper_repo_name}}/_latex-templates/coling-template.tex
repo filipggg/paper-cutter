@@ -1,0 +1,40 @@
+{% raw %}
+% LREC-COLING 2024 Example;
+% LREC Is now using templates similar to the ACL ones.
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[review]{lrec-coling2024} % this is the new style
+
+\input{config}
+\input{extras}
+\input{preamble}
+\input{metadata}
+
+\abstract{
+\input{abstract}
+ \\ \newline \Keywords{keyword1, keyword2, keyword3} }
+
+\begin{document}
+
+\maketitleabstract
+
+\input{main}
+
+\nocite{*}
+\section{Bibliographical References}\label{sec:reference}
+
+\bibliographystyle{lrec-coling2024-natbib}
+\bibliography{lrec-coling2024-example}
+
+\section{Language Resource References}
+\label{lr:ref}
+\bibliographystylelanguageresource{lrec-coling2024-natbib}
+\bibliographylanguageresource{languageresource}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+{% endraw %}

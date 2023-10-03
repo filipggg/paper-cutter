@@ -66,11 +66,12 @@ elif [ "{{ cookiecutter.latex_template }}" = "pw-thesis" ]; then
 
     cp -r _optional_files/_pw-thesis/* .
 elif [ "{{ cookiecutter.latex_template }}" = "coling" ]; then
-    get_files "https://coling2020.org/coling2020.zip" \
-              coling.bst \
-              coling2020.sty
-    cp -r _latex-templates/coling2020-template.tex {{cookiecutter.paper_id}}.tex
-    cp -r _latex-templates/coling2020-template-meta.tex metadata.tex
+    get_files "https://lrec-coling-2024.org/wp-content/uploads/2023/10/lrec-latex.zip" \
+              lrec-coling2024-natbib.bst \
+              lrec-coling2024.sty \
+              languageresource.bib
+    cp -r _latex-templates/coling-template.tex {{cookiecutter.paper_id}}.tex
+    cp -r _latex-templates/coling-template-meta.tex metadata.tex
 elif [ "{{ cookiecutter.latex_template }}" = "llncs" ]; then
     get_files "https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v6" \
               llncs.cls \
