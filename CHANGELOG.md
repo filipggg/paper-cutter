@@ -1,4 +1,15 @@
 
+<a name="5.5.0"></a>
+## 5.5.0 (2023-10-03)
+
+Updates:
+
+* Update Coling template
+
+Fixes:
+
+* Remove some broken tests
+
 <a name="5.4.6"></a>
 ## 5.4.6 (2022-12-20)
 
